@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E8C3075A19C37AA800FA4946"
                BuildableName = "Spoiler.app"
-               BlueprintName = "Spoiler"
-               ReferencedContainer = "container:Spoiler.xcodeproj">
+               BlueprintName = "Spoiler_iOS"
+               ReferencedContainer = "container:Spoiler_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E8C3077E19C37AA800FA4946"
                BuildableName = "SpoilerTests.xctest"
-               BlueprintName = "SpoilerTests"
-               ReferencedContainer = "container:Spoiler.xcodeproj">
+               BlueprintName = "Spoiler_iOSTests"
+               ReferencedContainer = "container:Spoiler_iOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E8C3075A19C37AA800FA4946"
             BuildableName = "Spoiler.app"
-            BlueprintName = "Spoiler"
-            ReferencedContainer = "container:Spoiler.xcodeproj">
+            BlueprintName = "Spoiler_iOS"
+            ReferencedContainer = "container:Spoiler_iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E8C3075A19C37AA800FA4946"
             BuildableName = "Spoiler.app"
-            BlueprintName = "Spoiler"
-            ReferencedContainer = "container:Spoiler.xcodeproj">
+            BlueprintName = "Spoiler_iOS"
+            ReferencedContainer = "container:Spoiler_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E8C3075A19C37AA800FA4946"
             BuildableName = "Spoiler.app"
-            BlueprintName = "Spoiler"
-            ReferencedContainer = "container:Spoiler.xcodeproj">
+            BlueprintName = "Spoiler_iOS"
+            ReferencedContainer = "container:Spoiler_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
