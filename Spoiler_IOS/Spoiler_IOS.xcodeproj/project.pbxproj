@@ -22,6 +22,7 @@
 		43CB45D019C8D0EE0054FD8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AF19C8D0EE0054FD8A /* UIKit.framework */; };
 		43CB45D819C8D0EE0054FD8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43CB45D619C8D0EE0054FD8A /* InfoPlist.strings */; };
 		43CB45DA19C8D0EE0054FD8A /* Spoiler_IOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */; };
+		E818116519D0F78100D3B5EB /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = E818116419D0F78100D3B5EB /* Log.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		43CB45D519C8D0EE0054FD8A /* Spoiler_IOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Spoiler_IOSTests-Info.plist"; sourceTree = "<group>"; };
 		43CB45D719C8D0EE0054FD8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spoiler_IOSTests.m; sourceTree = "<group>"; };
+		E818116319D0F78100D3B5EB /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		E818116419D0F78100D3B5EB /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				43CB45C419C8D0EE0054FD8A /* SecondViewController.m */,
 				43CB45C619C8D0EE0054FD8A /* Images.xcassets */,
 				43CB45B219C8D0EE0054FD8A /* Supporting Files */,
+				E818116319D0F78100D3B5EB /* Log.h */,
+				E818116419D0F78100D3B5EB /* Log.m */,
 			);
 			path = Spoiler_IOS;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43CB45C519C8D0EE0054FD8A /* SecondViewController.m in Sources */,
+				E818116519D0F78100D3B5EB /* Log.m in Sources */,
 				43CB45BC19C8D0EE0054FD8A /* AppDelegate.m in Sources */,
 				43CB45C219C8D0EE0054FD8A /* FirstViewController.m in Sources */,
 				43CB45B819C8D0EE0054FD8A /* main.m in Sources */,
@@ -462,6 +468,7 @@
 				43CB45DF19C8D0EE0054FD8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43CB45E019C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler_IOSTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				43CB45E219C8D0EE0054FD8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
