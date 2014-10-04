@@ -23,6 +23,7 @@
 		43CB45D819C8D0EE0054FD8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43CB45D619C8D0EE0054FD8A /* InfoPlist.strings */; };
 		43CB45DA19C8D0EE0054FD8A /* Spoiler_IOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */; };
 		E818116519D0F78100D3B5EB /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = E818116419D0F78100D3B5EB /* Log.m */; };
+		E818116B19D22BE900D3B5EB /* SpeedMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E818116A19D22BE900D3B5EB /* SpeedMonitorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spoiler_IOSTests.m; sourceTree = "<group>"; };
 		E818116319D0F78100D3B5EB /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		E818116419D0F78100D3B5EB /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
+		E818116919D22BE900D3B5EB /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedMonitorViewController.h; sourceTree = "<group>"; };
+		E818116A19D22BE900D3B5EB /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedMonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				43CB45BA19C8D0EE0054FD8A /* AppDelegate.h */,
 				43CB45BB19C8D0EE0054FD8A /* AppDelegate.m */,
 				43CB45BD19C8D0EE0054FD8A /* Main.storyboard */,
+				E818116919D22BE900D3B5EB /* SpeedMonitorViewController.h */,
+				E818116A19D22BE900D3B5EB /* SpeedMonitorViewController.m */,
 				43CB45C019C8D0EE0054FD8A /* FirstViewController.h */,
 				43CB45C119C8D0EE0054FD8A /* FirstViewController.m */,
 				43CB45C319C8D0EE0054FD8A /* SecondViewController.h */,
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43CB45C519C8D0EE0054FD8A /* SecondViewController.m in Sources */,
+				E818116B19D22BE900D3B5EB /* SpeedMonitorViewController.m in Sources */,
 				E818116519D0F78100D3B5EB /* Log.m in Sources */,
 				43CB45BC19C8D0EE0054FD8A /* AppDelegate.m in Sources */,
 				43CB45C219C8D0EE0054FD8A /* FirstViewController.m in Sources */,
