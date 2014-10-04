@@ -9,36 +9,98 @@
 #import "Log.h"
 #import <Foundation/Foundation.h>
 
+@interface Log ()
+
+- (NSString*) getIDPriv;
+- (double) getRatePriv;
+- (double) getSpeedAtPointPriv:(int) index;
+- (int) getLogSizePriv;
+- (void) setIdPriv:(NSString*) n;
+- (Boolean) addSpeedPriv:(double) num;
+- (void) setRatePriv:(double) rate;
+
+@end
+
 @implementation Log
+
+
+//PUBLIC METHODS
 
 //GETTERS
 
 //Returns the log id
-- (NSString*)getID{
+- (NSString*) getID {
+    return [self getIDPriv];
+}
+
+//Returns the rate of the measurements in milleseconds
+- (double) getRate {
+    return [self getRatePriv];
+}
+
+//Returns the total number of measurements
+- (int) getLogSize {
+    return [self getLogSize];
+}
+
+//Returns the speed at a given point.
+- (double) getSpeedAtPoint:(int) index {
+    return [self getSpeedAtPointPriv:index];
+}
+
+
+//SETTERS
+
+//Sets the ID of the function
+- (void) setId:(NSString *) n {
+    [self setIdPriv:n];
+}
+
+//Adds a speed of type double to the array of speeds
+- (Boolean) addSpeed:(double) num {
+    return [self addSpeedPriv:num];
+}
+
+//Sets the rate of the log
+- (void) setRate:(double)rate {
+    [self setRate:rate];
+}
+
+
+//PRIVATE METHODS
+
+//GETTERS
+
+//Returns the log id
+- (NSString*) getIDPriv {
     return self.id;
 }
-//returns the rate of the measurements in milleseconds
-- (double) getRate{
+
+//Returns the rate of the measurements in milleseconds
+- (double) getRatePriv {
     return self.rate;
 }
-//returns the speed at a given point.
+
+//Returns the speed at a given point.
 //REQUIRES: index < logSize && index >= 0
-//returns the value at the index provided the value is in bounds.  If it is out of bounds, returns -1
-- (double) getSpeedAtPoint:(int)index{
+//Returns the value at the index provided the value is in bounds.  If it is out of bounds, returns -1
+- (double) getSpeedAtPointPriv:(int) index {
     if (index >= 0 && index < self.speeds.count) {
         return [[self.speeds objectAtIndex:index] doubleValue];
     }
     return -1;
 }
-//returns the total number of measurements
-- (int) getLogSize{
-    return (int)self.speeds.count;
+
+//Returns the total number of measurements
+- (int) getLogSizePriv {
+    return (int) self.speeds.count;
 }
+
 
 //SETTERS
 
-//sets the ID of the function
-- (void) setId:(NSString*) n {
+//Sets the ID of the function
+- (void) setIdPriv:(NSString*) n {
     if (n != NULL) {
         self.id = n;
     }
@@ -46,9 +108,9 @@
     //self.id = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
 }
 
-//adds a speed of type double to the array of speeds
-//returns:  true if the value was added, false otherwise
-- (Boolean) addSpeed:(double)num{
+//Adds a speed of type double to the array of speeds
+//Returns:  true if the value was added, false otherwise
+- (Boolean) addSpeedPriv:(double) num {
     if (num >= 0) {
         [self.speeds addObject:[NSNumber numberWithDouble:num]];
         return true;
@@ -56,12 +118,12 @@
     return false;
 }
 
-//sets the rate of the log
+//Sets the rate of the log
 //Required:  rate > 0    if rate <= 0, rate = 1000
-- (void) setRate:(double)rate{
+- (void) setRatePriv:(double)rate {
     if (rate > 0) {
         self.rate = rate;
-    }else{
+    } else {
         self.rate = 1000;  //default of 1 second
     }
 }
