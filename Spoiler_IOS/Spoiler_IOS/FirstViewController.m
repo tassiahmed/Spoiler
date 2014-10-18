@@ -14,6 +14,14 @@
 
 @implementation FirstViewController
 
+- (IBAction)onStop:(id)sender {
+
+}
+
+- (IBAction)onRun:(id)sender {
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

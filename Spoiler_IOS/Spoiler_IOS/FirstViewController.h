@@ -10,4 +10,9 @@
 
 @interface FirstViewController : UIViewController
 
+//@property (nonatomic, retain) IBOutlet UIButton *RunBtn;
+//@property (nonatomic, retain) IBOutlet UIButton *StopBtn;
+@property (weak, nonatomic) IBOutlet UIButton *RunBtn;
+@property (weak, nonatomic) IBOutlet UIButton *StopBtn;
+
 @end

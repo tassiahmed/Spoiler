@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="581" y="-834"/>
         </scene>
-        <!--SpeedMonitorVC-->
+        <!--SpeedMonitorViewController-->
         <scene sceneID="Jmi-He-ZP8">
             <objects>
-                <viewController title="SpeedMonitorVC" id="8Mr-aj-ET5" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController title="SpeedMonitorViewController" id="8Mr-aj-ET5" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qt3-rj-C4p"/>
                         <viewControllerLayoutGuide type="bottom" id="pYD-Pr-7xj"/>
@@ -74,20 +74,36 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNb-P2-6QA">
-                                <rect key="frame" x="66" y="114" width="191" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Run Logger"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSv-BB-jbC">
+                                <rect key="frame" x="74" y="223" width="90" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mph" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpT-Ev-fEn">
+                                <rect key="frame" x="191" y="252" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yb-uF-z6f">
+                                <rect key="frame" x="16" y="481" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="RunLoggerButton:" destination="8Mr-aj-ET5" eventType="touchUpInside" id="gcW-Xa-DAk"/>
+                                    <action selector="onRun:" destination="8Mr-aj-ET5" eventType="touchUpInside" id="k47-J7-p94"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52V-LJ-NSA">
-                                <rect key="frame" x="106" y="470" width="111" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Stop Logger"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WL6-T6-NuP">
+                                <rect key="frame" x="258" y="481" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="StopLoggerButton:" destination="8Mr-aj-ET5" eventType="touchUpInside" id="DS3-8B-ZvK"/>
+                                    <action selector="onStop:" destination="8Mr-aj-ET5" eventType="touchUpInside" id="mTa-3l-MZi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,6 +111,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Speed Monitor" image="first" id="oD7-eM-ybb"/>
                     <navigationItem key="navigationItem" id="Sxg-8J-fEM"/>
+                    <connections>
+                        <outlet property="RunBtn" destination="9yb-uF-z6f" id="PHi-xp-taR"/>
+                        <outlet property="StopBtn" destination="WL6-T6-NuP" id="nwq-Vq-mhb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8F9-zg-LMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
