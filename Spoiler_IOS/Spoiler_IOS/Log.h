@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Log : NSObject
 
@@ -16,33 +17,68 @@
 
 @property(nonatomic) NSString *id;
 
-@property(nonatomic) NSDate *date;
+//@property(nonatomic) NSDate *date;
 
 @property(nonatomic) double rate;
 
-@property NSMutableArray *speeds;
+@property int numOfMeasures;
 
+//@property NSMutableArray *speeds;
+
+@property NSTimer *timer;
+
+@property CLLocation *loc;
+
+@property Boolean active;
+
+@property NSString *fileName;
+
+@property double currSpeed;
+
+//MODIFIERS  *************
+
+//starts the timer of the Logging
+- (Boolean) start:(double)interval id:(NSString*)n;
+
+//ends the timer of the logging
+- (Boolean) stop;
+
+//measures the speed of the vehicle
+- (void) takeSpeedPriv;
+
+//returns current speed
+- (CLLocationSpeed) getSpeed;
+
+//setup the log for measurement taking
+//- (void) setup:(double)r id:(NSString*)n;
+
+//stops the logging
+//- (void) stop;
 
 //GETTERS  *************
 
 //Gets the ID of the log.  Date_TimeStarted_n (n being the number started at that time)
-- (NSString*) getID;
+//- (NSString*) getID;
+
 //Gets the speed of a current
-- (double) getSpeedAtPoint:(int)index;
+//- (double) getSpeedAtPoint:(int)index;
+
 //get the total number of measurement points
 - (int) getLogSize;
+
 //get the rate at which the measurement was taken in seconds
-- (double) getRate;
+//- (double) getRate;
 
 
 //SETTERS  *************
 
 //Sets the Id of the string
-- (void) setId :(NSString*) n;
+//- (void) setId :(NSString*) n;
 //add a speed to the array of speeds
-- (Boolean) addSpeed :(double) num;
+//- (Boolean) addSpeed :(double) num;
 //set the rate of measurement in milleseconds
-- (void) setRate :(double) rate;
+//- (void) setRate :(double) rate;
+
 
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "Log.h"
 
 @interface FirstViewController ()
 
@@ -15,7 +16,7 @@
 @implementation FirstViewController
 
 - (IBAction)onStop:(id)sender {
-
+    
 }
 
 - (IBAction)onRun:(id)sender {
