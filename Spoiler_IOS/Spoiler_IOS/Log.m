@@ -62,11 +62,15 @@
 //return the last measurement.  If there is no last measurement, return -1.
 - (CLLocationSpeed) getSpeed{
     //if the class is active
-    if ([self active]){
+    return [self.loc speed];
+    //*******
+    //if ([self active]){
         //return the current speed
-        return [self currSpeed];
-    }
-    return -1;
+    //    return [self currSpeed];
+    //}
+    //*******
+    
+    //return -1;
 }
 
 //GETTERS

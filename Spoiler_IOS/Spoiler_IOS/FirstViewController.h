@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Log.h"
 
 @interface FirstViewController : UIViewController
 
@@ -14,5 +15,16 @@
 //@property (nonatomic, retain) IBOutlet UIButton *StopBtn;
 @property (weak, nonatomic) IBOutlet UIButton *RunBtn;
 @property (weak, nonatomic) IBOutlet UIButton *StopBtn;
+@property (weak, nonatomic) IBOutlet UILabel *lbl;
+@property (weak, nonatomic) IBOutlet UILabel *activeLabel;
+//updates the label
+@property NSTimer * lblTimer;
+//the log for the update
+@property Log*  lblLog;
+//pulsing animation
+@property CABasicAnimation * anim;
+
+//used for debugging.  Total number of measurements taken
+@property int counter;
 
 @end
