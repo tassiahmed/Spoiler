@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  LogViewController.h
 //  Spoiler_IOS
 //
 //  Created by Tausif Ahmed on 9/16/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface LogViewController : UIViewController
 
 @end

@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  LogViewController.m
 //  Spoiler_IOS
 //
 //  Created by Tausif Ahmed on 9/16/14.
 //  Copyright (c) 2014 Spoiler. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "LogViewController.h"
 
-@interface SecondViewController ()
+@interface LogViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation LogViewController
 
 - (void)viewDidLoad
 {
