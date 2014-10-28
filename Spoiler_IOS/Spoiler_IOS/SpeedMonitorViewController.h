@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SpeedMonitorViewController.h
 //  Spoiler_IOS
 //
 //  Created by Tausif Ahmed on 9/16/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Log.h"
 
-@interface FirstViewController : UIViewController
+@interface SpeedMonitorViewController : UIViewController
 
 //@property (nonatomic, retain) IBOutlet UIButton *RunBtn;
 //@property (nonatomic, retain) IBOutlet UIButton *StopBtn;
