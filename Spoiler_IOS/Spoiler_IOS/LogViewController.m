@@ -1,23 +1,23 @@
 //
-//  SecondViewController.m
+//  LogViewController.m
 //  Spoiler_IOS
 //
-//  Created by Tausif Ahmed on 9/16/14.
+//  Created by Tausif Ahmed on 10/28/14.
 //  Copyright (c) 2014 Spoiler. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "LogViewController.h"
 
-@interface SecondViewController ()
+@interface LogViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation LogViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
