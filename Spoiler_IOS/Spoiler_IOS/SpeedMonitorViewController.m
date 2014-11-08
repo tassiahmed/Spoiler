@@ -43,6 +43,7 @@
 - (IBAction)onRun:(id)sender{
     self.counter = 0;
     self.lblLog = [[Log alloc] init];
+    
     //enable and disable the correct buttons
     [self.StopBtn setEnabled:YES];
     [self.RunBtn setEnabled:NO];
