@@ -24,6 +24,10 @@
 //pulsing animation
 @property CABasicAnimation * anim;
 
+@property CLLocation* loc;
+
+@property CLLocationManager* cllManager;
+
 //used for debugging.  Total number of measurements taken
 @property int counter;
 

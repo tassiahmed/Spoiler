@@ -21,8 +21,11 @@
     //DEBUGGING LINE FOR THE TIMER
     //NSString * numStr = [NSString stringWithFormat:@"%d",self.counter];
     
+    //using loc in the header
+    NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.loc speed]];
+    
     //The correct version but using above for debugging
-    NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.lblLog getSpeed]];
+    //NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.lblLog getSpeed]];
     [self.lbl setText:numStr];
 }
 
@@ -33,6 +36,13 @@
     [self.StopBtn setEnabled:NO];
     //set the descriptive label to inactive
     [self.activeLabel setText:@"Inactive..."];
+    
+    self.loc = NULL;
+    
+    //Stop updating the location.  Will save battery.
+    [self.cllManager stopUpdatingLocation];
+    self.cllManager = nil;
+    
     //remove the animation
     [[[self activeLabel] layer] removeAnimationForKey:@"pulse"];
     //end the label timer
@@ -47,6 +57,16 @@
     //enable and disable the correct buttons
     [self.StopBtn setEnabled:YES];
     [self.RunBtn setEnabled:NO];
+    
+    
+    //start updating the location
+    self.cllManager = [[CLLocationManager alloc] init];
+    //need to check for gps here later
+    //No good way of doing it at the moment
+    
+    [self.cllManager startUpdatingLocation];
+    
+    self.loc = [[CLLocation alloc] init];
     
     //set the descriptive label to running
     [self.activeLabel setText:@"Running..."];
