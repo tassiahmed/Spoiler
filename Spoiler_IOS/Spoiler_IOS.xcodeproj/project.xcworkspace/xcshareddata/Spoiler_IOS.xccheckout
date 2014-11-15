@@ -10,29 +10,29 @@
 	<string>Spoiler_IOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2AAF8169-B1E3-4E47-849C-3EB129433FCE</key>
-		<string>ssh://github.com/emt13/Spoiler.git</string>
+		<key>872B8F33DB382592A0A99F83FCD6481960E19F90</key>
+		<string>github.com:emt13/Spoiler.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Spoiler_IOS/Spoiler_IOS.xcodeproj/project.xcworkspace</string>
+	<string>Spoiler_IOS/Spoiler_IOS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2AAF8169-B1E3-4E47-849C-3EB129433FCE</key>
+		<key>872B8F33DB382592A0A99F83FCD6481960E19F90</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/emt13/Spoiler.git</string>
+	<string>github.com:emt13/Spoiler.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2AAF8169-B1E3-4E47-849C-3EB129433FCE</string>
+	<string>872B8F33DB382592A0A99F83FCD6481960E19F90</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2AAF8169-B1E3-4E47-849C-3EB129433FCE</string>
+			<string>872B8F33DB382592A0A99F83FCD6481960E19F90</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Spoiler</string>
 		</dict>
