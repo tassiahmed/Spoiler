@@ -2,7 +2,7 @@
 //  SpeedMonitorViewController.m
 //  Spoiler_IOS
 //
-//  Created by Tausif Ahmed on 9/16/14.
+//  Evan Thompson, Tausif Ahmed
 //  Copyright (c) 2014 Spoiler. All rights reserved.
 //
 
@@ -22,6 +22,7 @@
     //NSString * numStr = [NSString stringWithFormat:@"%d",self.counter];
     
     //using loc in the header
+    self.loc = [self.cllManager location];
     NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.loc speed]];
     
     //The correct version but using above for debugging
@@ -37,7 +38,7 @@
     //set the descriptive label to inactive
     [self.activeLabel setText:@"Inactive..."];
     
-    self.loc = NULL;
+    //self.loc = NULL;
     
     //Stop updating the location.  Will save battery.
     [self.cllManager stopUpdatingLocation];
@@ -66,7 +67,7 @@
     
     [self.cllManager startUpdatingLocation];
     
-    self.loc = [[CLLocation alloc] init];
+    //self.loc = [[CLLocation alloc] init];
     
     //set the descriptive label to running
     [self.activeLabel setText:@"Running..."];
