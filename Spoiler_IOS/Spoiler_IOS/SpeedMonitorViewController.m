@@ -45,8 +45,10 @@
 
 //Handles when the stop button is pressed
 - (IBAction)onStop:(id)sender {
+    
     //set the UI to the stop state
     [self stopUISetup];
+    
     //set the location to a stopped state
     [self stopLocation];
     
@@ -77,8 +79,10 @@
     //enable and disable the correct buttons
     [self.StopBtn setEnabled:YES];
     [self.RunBtn setEnabled:NO];
+    
     //set the descriptive label to running
     [self.activeLabel setText:@"Running..."];
+    
     //set the animation
     [[[self activeLabel] layer] addAnimation:self.anim forKey:@"pulse"];
 }
