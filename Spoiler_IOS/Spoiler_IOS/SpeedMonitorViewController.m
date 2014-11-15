@@ -64,6 +64,11 @@
     self.cllManager = [[CLLocationManager alloc] init];
     //need to check for gps here later
     //No good way of doing it at the moment
+    self.cllManager.delegate = self;
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.cllManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.cllManager requestWhenInUseAuthorization];
+    }
     
     [self.cllManager startUpdatingLocation];
     
