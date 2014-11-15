@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Log.h"
 
-@interface LogViewController : UIViewController
+@interface LogViewController : UINavigationController
 
 @end

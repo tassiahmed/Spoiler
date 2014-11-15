@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		437EA45D1A18124C006C6A79 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437EA45C1A18124C006C6A79 /* SettingViewController.m */; };
 		43CB45AC19C8D0EE0054FD8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AB19C8D0EE0054FD8A /* Foundation.framework */; };
 		43CB45AE19C8D0EE0054FD8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AD19C8D0EE0054FD8A /* CoreGraphics.framework */; };
 		43CB45B019C8D0EE0054FD8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AF19C8D0EE0054FD8A /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		437EA45B1A18124C006C6A79 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		437EA45C1A18124C006C6A79 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		43CB45A819C8D0EE0054FD8A /* Spoiler_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CB45AB19C8D0EE0054FD8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43CB45AD19C8D0EE0054FD8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +123,8 @@
 			children = (
 				E890AB771A17F65400750455 /* LogViewController.h */,
 				E890AB781A17F65400750455 /* LogViewController.m */,
+				437EA45B1A18124C006C6A79 /* SettingViewController.h */,
+				437EA45C1A18124C006C6A79 /* SettingViewController.m */,
 				E890AB791A17F65400750455 /* SpeedMonitorViewController.h */,
 				E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */,
 				43CB45BA19C8D0EE0054FD8A /* AppDelegate.h */,
@@ -264,6 +269,7 @@
 				43CB45BC19C8D0EE0054FD8A /* AppDelegate.m in Sources */,
 				43CB45B819C8D0EE0054FD8A /* main.m in Sources */,
 				E890AB7B1A17F65400750455 /* LogViewController.m in Sources */,
+				437EA45D1A18124C006C6A79 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
