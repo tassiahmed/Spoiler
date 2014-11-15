@@ -18,15 +18,10 @@
     //number of times the lbl was updated
     self.counter++;
     
-    //DEBUGGING LINE FOR THE TIMER
-    //NSString * numStr = [NSString stringWithFormat:@"%d",self.counter];
-    
     //using loc in the header
     self.loc = [self.cllManager location];
     NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.loc speed]];
-    
-    //The correct version but using above for debugging
-    //NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.lblLog getSpeed]];
+
     [self.lbl setText:numStr];
 }
 
@@ -38,8 +33,6 @@
     //set the descriptive label to inactive
     [self.activeLabel setText:@"Inactive..."];
     
-    //self.loc = NULL;
-    
     //Stop updating the location.  Will save battery.
     [self.cllManager stopUpdatingLocation];
     self.cllManager = nil;
@@ -48,6 +41,7 @@
     [[[self activeLabel] layer] removeAnimationForKey:@"pulse"];
     //end the label timer
     [self.lblTimer invalidate];
+    [self.lbl setText:@"0"];
 }
 
 //Handles when the run button is pressed
@@ -62,6 +56,8 @@
     
     //start updating the location
     self.cllManager = [[CLLocationManager alloc] init];
+    
+    
     //need to check for gps here later
     //No good way of doing it at the moment
     
@@ -78,6 +74,18 @@
     self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: .5 target:self selector: @selector(lblUpdate) userInfo:nil repeats:YES];
 }
 
+-(void) setupAnim{
+    //setup the pulsing animation for the active label
+        self.anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    [self.anim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [self.anim setRepeatCount:HUGE_VALF];
+    [self.anim setFromValue:[NSNumber numberWithFloat:.25]];
+    [self.anim setToValue:[NSNumber numberWithFloat:1.0]];
+    [self.anim setAutoreverses:YES];
+    [self.anim setDuration:1.0];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -85,15 +93,7 @@
     
     [self.StopBtn setEnabled:NO];
     [self.RunBtn setEnabled:YES];
-    
-    //setup the pulsing animation for the active label
-    self.anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    [self.anim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [self.anim setRepeatCount:HUGE_VALF];
-    [self.anim setFromValue:[NSNumber numberWithFloat:.25]];
-    [self.anim setToValue:[NSNumber numberWithFloat:1.0]];
-    [self.anim setAutoreverses:YES];
-    [self.anim setDuration:1.0];
+    [self setupAnim];
 }
 
 - (void)didReceiveMemoryWarning
