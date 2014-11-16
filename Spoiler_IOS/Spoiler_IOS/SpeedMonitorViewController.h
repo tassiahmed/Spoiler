@@ -28,6 +28,11 @@
 
 @property CLLocationManager* cllManager;
 
+@property NSFileHandle* fileSys;
+@property NSString* currFile;
+
+@property NSTimeInterval RATE;
+
 //used for debugging.  Total number of measurements taken
 @property int counter;
 
