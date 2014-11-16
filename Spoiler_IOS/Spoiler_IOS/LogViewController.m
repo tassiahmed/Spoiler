@@ -17,8 +17,14 @@
 NSArray *logData;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSFileManager* manager = [NSFileManager defaultManager];
+    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [directories objectAtIndex:0];
+    logData = [manager contentsOfDirectoryAtPath: docsDir error:NULL];
+    
     // Initialize table data
-    logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
+    //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -23,8 +23,8 @@
 -(void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data{
     if (self.fileSys != nil) {
         [self.fileSys seekToEndOfFile];
-        NSMutableString* toWrite = [NSMutableString stringWithString:data];
-        [toWrite appendString:@"|"];
+        //NSMutableString* toWrite = [NSMutableString stringWithString:data];
+        //[toWrite appendString:@"|"];
         [self.fileSys writeData:[data dataUsingEncoding:NSUTF8StringEncoding]];
     }
 }
@@ -56,10 +56,10 @@
 }
 
 - (void) tick{
+
     self.cllManager = [[CLLocationManager alloc] init];
     [self.cllManager startUpdatingLocation];
-    //[self.cllManager stopUpdatingLocation];
-    //[self.cllManager startUpdatingLocation];
+
     //get the location
     self.loc = [self.cllManager location];
     //self.cllManager = nil;
@@ -149,20 +149,28 @@
 }
 
 -(void) runFileSetup:(double)rate{
+    
     NSDate* date = [NSDate date];
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM_dd_yyyy___HH_mm_ss"];
     NSString* dateStr = [NSString stringWithString:[df stringFromDate:date]];
-    NSMutableString* path = [NSMutableString stringWithString:@"Documents/"];
-    [path appendString:dateStr];
-    [path appendString:@".log"];
+    
+    NSArray* directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docsDir = [directories objectAtIndex:0];
+    
+    NSString* path = [NSString stringWithFormat:@"%@/%@%@", docsDir, dateStr, @".log"];
+    //[path appendString:dateStr];
+    //[path appendString:@".log"];
+    
     self.currFile = path;
     self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
     
     //create meta data
-    NSMutableString* toWrite = [NSMutableString stringWithString:dateStr];
-    [toWrite appendString:@"|"];
-    [toWrite appendString:[NSString stringWithFormat:@"%f|", rate]];
+    NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", dateStr, rate];
+    
+    //NSMutableString* toWrite = [NSMutableString stringWithString:dateStr];
+    //[toWrite appendString:@"|"];
+    //[toWrite appendString:[NSString stringWithFormat:@"%f", rate]];
     
     //write to the file
     [self writeToFile:self.fileSys data:toWrite];
