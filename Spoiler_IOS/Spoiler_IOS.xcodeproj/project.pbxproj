@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4351F6DD1A182D5A002491E1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4351F6DC1A182D5A002491E1 /* TableViewController.m */; };
 		43B1C3C61A182518005A9372 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B1C3C51A182518005A9372 /* SettingViewController.m */; };
 		43CB45AC19C8D0EE0054FD8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AB19C8D0EE0054FD8A /* Foundation.framework */; };
 		43CB45AE19C8D0EE0054FD8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AD19C8D0EE0054FD8A /* CoreGraphics.framework */; };
@@ -38,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4351F6DB1A182D5A002491E1 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		4351F6DC1A182D5A002491E1 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		43B1C3C41A182518005A9372 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		43B1C3C51A182518005A9372 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		43CB45A819C8D0EE0054FD8A /* Spoiler_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +129,6 @@
 				E890AB781A17F65400750455 /* LogViewController.m */,
 				43B1C3C41A182518005A9372 /* SettingViewController.h */,
 				43B1C3C51A182518005A9372 /* SettingViewController.m */,
-				4351F6DB1A182D5A002491E1 /* TableViewController.h */,
-				4351F6DC1A182D5A002491E1 /* TableViewController.m */,
 				E890AB791A17F65400750455 /* SpeedMonitorViewController.h */,
 				E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */,
 				43CB45BD19C8D0EE0054FD8A /* Main.storyboard */,
@@ -274,7 +269,6 @@
 				43CB45BC19C8D0EE0054FD8A /* AppDelegate.m in Sources */,
 				43CB45B819C8D0EE0054FD8A /* main.m in Sources */,
 				E890AB7B1A17F65400750455 /* LogViewController.m in Sources */,
-				4351F6DD1A182D5A002491E1 /* TableViewController.m in Sources */,
 				43B1C3C61A182518005A9372 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
