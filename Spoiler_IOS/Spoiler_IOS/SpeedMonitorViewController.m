@@ -31,6 +31,14 @@
 
 //*******************************************************************************
 
+/*- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations{
+    self.cllManager = manager;
+    [self.cllManager setPausesLocationUpdatesAutomatically:NO];
+    [self.cllManager startUpdatingLocation];
+}*/
+
+
 - (void)lblUpdate:(double)velo{
     NSString * numStr = [NSString stringWithFormat:@"%.0f", velo];
 
@@ -48,11 +56,15 @@
 }
 
 - (void) tick{
+    self.cllManager = [[CLLocationManager alloc] init];
+    [self.cllManager startUpdatingLocation];
+    //[self.cllManager stopUpdatingLocation];
+    //[self.cllManager startUpdatingLocation];
     //get the location
     self.loc = [self.cllManager location];
+    //self.cllManager = nil;
     //get the speed
     double velo = self.loc.speed;
-    
     //update the label
     [self lblUpdate:velo];
     
@@ -110,9 +122,13 @@
     if ([self.cllManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.cllManager requestWhenInUseAuthorization];
     }
-    
+    //[self.cllManager setDelegate:self];
     //set the accuracy
-    self.cllManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    [self.cllManager setPausesLocationUpdatesAutomatically:NO];
+    
+    [self.cllManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
+    
+    [self.cllManager setDistanceFilter:kCLDistanceFilterNone];
     
     //begin updating
     [self.cllManager startUpdatingLocation];

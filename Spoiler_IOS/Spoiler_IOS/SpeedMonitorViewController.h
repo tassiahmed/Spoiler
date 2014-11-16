@@ -26,7 +26,7 @@
 
 @property CLLocation* loc;
 
-@property CLLocationManager* cllManager;
+@property (nonatomic, strong) CLLocationManager* cllManager;
 
 @property NSFileHandle* fileSys;
 @property NSString* currFile;
