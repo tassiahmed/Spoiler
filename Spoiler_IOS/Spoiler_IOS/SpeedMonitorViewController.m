@@ -21,12 +21,13 @@
 
 //USE THIS FUNCTION TO WRITE TO FILE
 -(void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data{
-    if (self.fileSys != nil) {
+    NSLog(@"Writing to file (%@) : %@", self.currFile, data);
+    //if (self.fileSys != nil) {
         [self.fileSys seekToEndOfFile];
         //NSMutableString* toWrite = [NSMutableString stringWithString:data];
         //[toWrite appendString:@"|"];
-        [self.fileSys writeData:[data dataUsingEncoding:NSUTF8StringEncoding]];
-    }
+        [self.fileSys writeData:[data dataUsingEncoding:NSASCIIStringEncoding]];
+    //}
 }
 
 //*******************************************************************************
@@ -48,7 +49,7 @@
 - (BOOL) addMeasurement:(double)val{
     self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
     //if (self.fileSys != nil) {
-        NSString* valStr = [NSString stringWithFormat:@"%.0f", val];
+        NSString* valStr = [NSString stringWithFormat:@"%.0f|", val];
         [self writeToFile:self.fileSys data:valStr];
         return TRUE;
     //}
@@ -152,13 +153,16 @@
     
     NSDate* date = [NSDate date];
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM_dd_yyyy___HH_mm_ss"];
+    [df setDateFormat:@"MM_dd_yyyy_HH_mm_ss"];
     NSString* dateStr = [NSString stringWithString:[df stringFromDate:date]];
     
-    NSArray* directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docsDir = [directories objectAtIndex:0];
+    //NSArray* directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //NSString* docsDir = [directories objectAtIndex:0];
+    NSString* docsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
-    NSString* path = [NSString stringWithFormat:@"%@/%@%@", docsDir, dateStr, @".log"];
+    //NSString* path = [NSString stringWithFormat:@"%@/%@%@", docsDir, dateStr, @".log"];
+    NSString* name = [NSString stringWithFormat:@"%@.log",dateStr];
+    NSString* path = [docsDir stringByAppendingPathComponent:name];
     //[path appendString:dateStr];
     //[path appendString:@".log"];
     
@@ -168,6 +172,10 @@
     //create meta data
     NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", dateStr, rate];
     
+    NSLog(@"File path for writing: %@", self.currFile);
+    
+    NSFileManager* manager = [NSFileManager defaultManager];
+    [manager createFileAtPath:self.currFile contents: [toWrite dataUsingEncoding:NSASCIIStringEncoding] attributes:nil];
     //NSMutableString* toWrite = [NSMutableString stringWithString:dateStr];
     //[toWrite appendString:@"|"];
     //[toWrite appendString:[NSString stringWithFormat:@"%f", rate]];

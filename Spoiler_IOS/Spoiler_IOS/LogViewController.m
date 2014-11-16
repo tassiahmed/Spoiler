@@ -21,7 +21,10 @@ NSArray *logData;
     NSFileManager* manager = [NSFileManager defaultManager];
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [directories objectAtIndex:0];
-    logData = [manager contentsOfDirectoryAtPath: docsDir error:NULL];
+    logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
+    
+    NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
+    NSLog(@"Path for log viewer: %@", docsDir);
     
     // Initialize table data
     //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
@@ -60,6 +63,7 @@ NSArray *logData;
     }
     
     cell.textLabel.text = [logData objectAtIndex:indexPath.row];
+    
     return cell;
 }
 
