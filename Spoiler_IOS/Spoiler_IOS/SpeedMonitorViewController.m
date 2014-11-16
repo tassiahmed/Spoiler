@@ -14,16 +14,53 @@
 
 @implementation SpeedMonitorViewController
 
-- (void)lblUpdate{
-    //number of times the lbl was updated
-    self.counter++;
-    
-    //using loc in the header
-    self.loc = [self.cllManager location];
 
-    NSString * numStr = [NSString stringWithFormat:@"%.0f", [self.loc speed]];
+//WRAPPERS
+
+
+
+//USE THIS FUNCTION TO WRITE TO FILE
+-(void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data{
+    if (self.fileSys != nil) {
+        [self.fileSys seekToEndOfFile];
+        NSMutableString* toWrite = [NSMutableString stringWithString:data];
+        [toWrite appendString:@"|"];
+        [self.fileSys writeData:[data dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+}
+
+//*******************************************************************************
+
+- (void)lblUpdate:(double)velo{
+    NSString * numStr = [NSString stringWithFormat:@"%.0f", velo];
 
     [self.lbl setText:numStr];
+}
+
+- (BOOL) addMeasurement:(double)val{
+    self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
+    //if (self.fileSys != nil) {
+        NSString* valStr = [NSString stringWithFormat:@"%.0f", val];
+        [self writeToFile:self.fileSys data:valStr];
+        return TRUE;
+    //}
+    //return FALSE;
+}
+
+- (void) tick{
+    //get the location
+    self.loc = [self.cllManager location];
+    //get the speed
+    double velo = self.loc.speed;
+    
+    //update the label
+    [self lblUpdate:velo];
+    
+    //add the measurement and alert user if measurement was not added
+    if(![self addMeasurement:velo]){
+        [self lblUpdate:-1];
+        [self.activeLabel setText:@"SPEED NOT ADDED"];
+    }
 }
 
 - (void) stopUISetup{
@@ -43,6 +80,10 @@
     self.cllManager = nil;
 }
 
+- (void) stopFile{
+    [self.fileSys closeFile];
+}
+
 //Handles when the stop button is pressed
 - (IBAction)onStop:(id)sender {
     
@@ -51,6 +92,9 @@
     
     //set the location to a stopped state
     [self stopLocation];
+    
+    //close up the file
+    [self stopFile];
     
     //end the label timer
     [self.lblTimer invalidate];
@@ -76,6 +120,7 @@
 }
 
 - (void) runUISetup{
+    
     //enable and disable the correct buttons
     [self.StopBtn setEnabled:YES];
     [self.RunBtn setEnabled:NO];
@@ -87,6 +132,26 @@
     [[[self activeLabel] layer] addAnimation:self.anim forKey:@"pulse"];
 }
 
+-(void) runFileSetup:(double)rate{
+    NSDate* date = [NSDate date];
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM_dd_yyyy___HH_mm_ss"];
+    NSString* dateStr = [NSString stringWithString:[df stringFromDate:date]];
+    NSMutableString* path = [NSMutableString stringWithString:@"Documents/"];
+    [path appendString:dateStr];
+    [path appendString:@".log"];
+    self.currFile = path;
+    self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
+    
+    //create meta data
+    NSMutableString* toWrite = [NSMutableString stringWithString:dateStr];
+    [toWrite appendString:@"|"];
+    [toWrite appendString:[NSString stringWithFormat:@"%f|", rate]];
+    
+    //write to the file
+    [self writeToFile:self.fileSys data:toWrite];
+}
+
 //Handles when the run button is pressed
 - (IBAction)onRun:(id)sender{
     
@@ -96,8 +161,11 @@
     //change the UI for the run state
     [self runUISetup];
     
+    //get the file ready for initiliazation
+    [self runFileSetup:self.RATE];
+    
     //start the timer for updating the label
-    self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: .5 target:self selector: @selector(lblUpdate) userInfo:nil repeats:YES];
+    self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.RATE target:self selector: @selector(tick) userInfo:nil repeats:YES];
 }
 
 -(void) setupAnim{
@@ -120,6 +188,8 @@
     [self.StopBtn setEnabled:NO];
     [self.RunBtn setEnabled:YES];
     [self setupAnim];
+    
+    self.RATE = 1.0;
 }
 
 - (void)didReceiveMemoryWarning
