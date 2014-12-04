@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Logging Values</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Speed Measurement</string>
+			<key>Key</key>
+			<string>speedMeasurments</string>
+			<key>DefaultValue</key>
+			<string>mph</string>
+			<key>Titles</key>
+			<array>
+				<string>mph</string>
+				<string>km/h</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>mph</string>
+				<string>km/h</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Timer Rate</string>
+			<key>Key</key>
+			<string>timerRate</string>
+			<key>DefaultValue</key>
+			<string>Every 1 second</string>
+			<key>Titles</key>
+			<array>
+				<string>Every 1 second</string>
+				<string>Every 2 seconds</string>
+				<string>Every 3 seconds</string>
+				<string>Every 4 seconds</string>
+				<string>Every 5 seconds</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>1</integer>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
+				<string>5</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>User Notifications</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Send Logs by Email</string>
+			<key>Key</key>
+			<string>sendLog</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Email Address:</string>
+			<key>Key</key>
+			<string>emailAddr</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>IsSecure</key>
+			<false/>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
