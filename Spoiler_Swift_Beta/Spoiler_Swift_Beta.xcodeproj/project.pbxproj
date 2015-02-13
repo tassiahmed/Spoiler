@@ -409,6 +409,7 @@
 				432A9DC61A8C748C006408C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		432A9DC71A8C748C006408C6 /* Build configuration list for PBXNativeTarget "Spoiler_Swift_BetaTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				432A9DC91A8C748C006408C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
