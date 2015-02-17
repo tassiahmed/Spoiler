@@ -19,12 +19,12 @@ NSArray *logData;
     [super viewDidLoad];
     
     NSFileManager* manager = [NSFileManager defaultManager];
-    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [directories objectAtIndex:0];
+//    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *docsDir = [directories objectAtIndex:0];
     logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     
-    NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
-    NSLog(@"Path for log viewer: %@", docsDir);
+//    NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
+//    NSLog(@"Path for log viewer: %@", docsDir);
     
     // Initialize table data
     //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
@@ -62,7 +62,22 @@ NSArray *logData;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:log];
     }
     
-    cell.textLabel.text = [logData objectAtIndex:indexPath.row];
+    NSString *format = [logData objectAtIndex:indexPath.row];
+    
+    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    format = [format substringWithRange:NSMakeRange(0, 19)];
+    
+    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
+    
+    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
+
+    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
+    
+    format = [date stringByAppendingFormat:@" %@", time];
+    
+//    NSLog(@"String name: %@", format);
+    
+    cell.textLabel.text = format;
     
     return cell;
 }
