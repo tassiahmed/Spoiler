@@ -26,8 +26,8 @@ NSArray *logData;
     [super viewDidLoad];
     
     NSFileManager* manager = [NSFileManager defaultManager];
-    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [directories objectAtIndex:0];
+//    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *docsDir = [directories objectAtIndex:0];
     logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     //[self convertForTable:logData];
     NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
