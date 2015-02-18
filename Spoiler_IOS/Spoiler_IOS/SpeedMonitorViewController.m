@@ -7,6 +7,7 @@
 //
 
 #import "SpeedMonitorViewController.h"
+#import "LogViewController.h"
 
 @interface SpeedMonitorViewController ()
 
@@ -60,12 +61,12 @@
 
     self.cllManager = [[CLLocationManager alloc] init];
     [self.cllManager startUpdatingLocation];
-
+    
     //get the location
     self.loc = [self.cllManager location];
     //self.cllManager = nil;
-    //get the speed
-    double velo = self.loc.speed;
+    //get the speed according to the desired speed system (kph/mph)
+    double velo = self.loc.speed * self.SPEEDSYSTEM;
     //update the label
     [self lblUpdate:velo];
     
@@ -196,6 +197,8 @@
     //get the file ready for initiliazation
     [self runFileSetup:self.RATE];
     
+    
+    
     //start the timer for updating the label
     self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.RATE target:self selector: @selector(tick) userInfo:nil repeats:YES];
 }
@@ -221,7 +224,10 @@
     [self.RunBtn setEnabled:YES];
     [self setupAnim];
     
+    
+    
     self.RATE = 1.0;
+    self.SPEEDSYSTEM = 2.236;
 }
 
 - (void)didReceiveMemoryWarning

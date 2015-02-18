@@ -58,6 +58,7 @@
 		43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spoiler_IOSTests.m; sourceTree = "<group>"; };
 		E818116319D0F78100D3B5EB /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		E818116419D0F78100D3B5EB /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
+		E858ED891A8D313000AD7D1B /* Vars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vars.h; sourceTree = "<group>"; };
 		E890AB771A17F65400750455 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		E890AB781A17F65400750455 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		E890AB791A17F65400750455 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedMonitorViewController.h; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 				43CB45BD19C8D0EE0054FD8A /* Main.storyboard */,
 				43CB45C619C8D0EE0054FD8A /* Images.xcassets */,
 				43CB45B219C8D0EE0054FD8A /* Supporting Files */,
+				E858ED891A8D313000AD7D1B /* Vars.h */,
 			);
 			path = Spoiler_IOS;
 			sourceTree = "<group>";

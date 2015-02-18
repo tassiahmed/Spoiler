@@ -36,4 +36,6 @@
 //used for debugging.  Total number of measurements taken
 @property int counter;
 
+@property double SPEEDSYSTEM;
+
 @end

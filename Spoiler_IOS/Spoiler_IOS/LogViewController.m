@@ -14,6 +14,13 @@
 
 @implementation LogViewController
 
+- (NSString*) convertForTable:(NSString*) string{
+    NSString* str1 = [NSString stringWithString:string];
+    NSString* str2 = [[str1 substringToIndex:10] stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    NSString* str3 = [[str1 substringFromIndex:11] stringByReplacingOccurrencesOfString:@"_" withString:@":"];
+    return [[NSString stringWithFormat:@"%@_%@", str2, str3] substringToIndex:19];
+}
+
 NSArray *logData;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,9 +29,10 @@ NSArray *logData;
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [directories objectAtIndex:0];
     logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
-    
+    //[self convertForTable:logData];
     NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
     NSLog(@"Path for log viewer: %@", docsDir);
+    
     
     // Initialize table data
     //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
@@ -62,7 +70,7 @@ NSArray *logData;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:log];
     }
     
-    cell.textLabel.text = [logData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self convertForTable:[logData objectAtIndex:indexPath.row]];
     
     return cell;
 }
