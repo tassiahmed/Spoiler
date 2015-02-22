@@ -123,7 +123,7 @@
     if ([self.cllManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.cllManager requestWhenInUseAuthorization];
     }
-    //[self.cllManager setDelegate:self];
+    [self.cllManager setDelegate:self];
     //set the accuracy
     [self.cllManager setPausesLocationUpdatesAutomatically:NO];
     
