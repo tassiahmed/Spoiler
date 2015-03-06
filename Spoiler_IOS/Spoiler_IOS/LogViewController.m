@@ -8,9 +8,7 @@
 
 #import "LogViewController.h"
 
-@interface LogViewController ()
-
-@end
+@interface LogViewController () @end
 
 @implementation LogViewController
 
@@ -51,21 +49,30 @@ NSArray *logData;
 
 #pragma mark - Table view data source
 
+//=========================================//
+//======        Table Functions       =====//
+//=========================================//
+
+// Function to retrieve # of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
+// Function to retrieve # of rows in table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [logData count];
+    return [self.logData count];
 }
 
+// Function to set up and create table vieww to look at past log files
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    // Establish the row element will be a log item
     static NSString *log = @"LogItem";
     
+    // Generate a cell in a table
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:log];
     
+    // Intialize the cell if it is nil
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:log];
     }
@@ -73,6 +80,25 @@ NSArray *logData;
     cell.textLabel.text = [self convertForTable:[logData objectAtIndex:indexPath.row]];
     
     return cell;
+}
+
+//=========================================//
+//======      Overriden Functions     =====//
+//=========================================//
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    NSFileManager* manager = [NSFileManager defaultManager];
+    self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -255,14 +255,8 @@
 		43CB45B119C8D0EE0054FD8A /* Spoiler_IOS */ = {
 			isa = PBXGroup;
 			children = (
-				E818116319D0F78100D3B5EB /* Log.h */,
-				E818116419D0F78100D3B5EB /* Log.m */,
-				43CB45BA19C8D0EE0054FD8A /* AppDelegate.h */,
-				43CB45BB19C8D0EE0054FD8A /* AppDelegate.m */,
-				E890AB771A17F65400750455 /* LogViewController.h */,
-				E890AB781A17F65400750455 /* LogViewController.m */,
-				E890AB791A17F65400750455 /* SpeedMonitorViewController.h */,
-				E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */,
+				43DAD5081AA63B1A0081F540 /* Objects */,
+				43DAD5071AA63B020081F540 /* View Controllers */,
 				43CB45BD19C8D0EE0054FD8A /* Main.storyboard */,
 				43CB45C619C8D0EE0054FD8A /* Images.xcassets */,
 				43CB45B219C8D0EE0054FD8A /* Supporting Files */,
@@ -298,6 +292,60 @@
 				43CB45D619C8D0EE0054FD8A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43DAD5071AA63B020081F540 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43DAD50B1AA63B540081F540 /* Speed Monitor */,
+				43DAD50C1AA63B680081F540 /* Log View */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		43DAD5081AA63B1A0081F540 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				43DAD5091AA63B3A0081F540 /* Log */,
+				43DAD50A1AA63B420081F540 /* App Delegate */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		43DAD5091AA63B3A0081F540 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				E818116319D0F78100D3B5EB /* Log.h */,
+				E818116419D0F78100D3B5EB /* Log.m */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		43DAD50A1AA63B420081F540 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				43CB45BA19C8D0EE0054FD8A /* AppDelegate.h */,
+				43CB45BB19C8D0EE0054FD8A /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		43DAD50B1AA63B540081F540 /* Speed Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */,
+				E890AB791A17F65400750455 /* SpeedMonitorViewController.h */,
+			);
+			name = "Speed Monitor";
+			sourceTree = "<group>";
+		};
+		43DAD50C1AA63B680081F540 /* Log View */ = {
+			isa = PBXGroup;
+			children = (
+				E890AB781A17F65400750455 /* LogViewController.m */,
+				E890AB771A17F65400750455 /* LogViewController.h */,
+			);
+			name = "Log View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
