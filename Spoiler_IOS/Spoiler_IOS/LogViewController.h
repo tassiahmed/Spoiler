@@ -12,4 +12,6 @@
 
 @interface LogViewController : UITableViewController
 
+@property NSArray *logData;
+
 @end

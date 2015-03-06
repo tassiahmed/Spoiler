@@ -9,17 +9,7 @@
 #import "Log.h"
 #import <Foundation/Foundation.h>
 
-@interface Log ()
-
-//- (NSString*) getIDPriv;
-//- (double) getRatePriv;
-//- (double) getSpeedAtPointPriv:(int) index;
-//- (int) getLogSizePriv;
-//- (void) setIdPriv:(NSString*) n;
-//- (Boolean) addSpeedPriv:(double) num;
-//- (void) setRatePriv:(double) rate;
-
-@end
+@interface Log () @end
 
 @implementation Log
 
@@ -27,7 +17,7 @@
 
 //MODIFIERS
 
-- (Boolean) start:(double)interval id:(NSString*)n{
+- (Boolean) start:(double)interval id:(NSString*)n {
     //check if the rate is valid
     if (interval < 0) {
         return false;
@@ -40,7 +30,7 @@
     return true;
 }
 
-- (Boolean) stop{
+- (Boolean) stop {
     //if the timer is running
     if ([self.timer isValid]) {
         //stop the timer
@@ -53,14 +43,14 @@
     return false;
 }
 
-- (void) takeSpeedPriv{
+- (void) takeSpeedPriv {
     //get the current speed
     self.currSpeed = [self.loc speed];
     //increment the number of measurements
     self.numOfMeasures++;
 }
 //return the last measurement.  If there is no last measurement, return -1.
-- (CLLocationSpeed) getSpeed{
+- (CLLocationSpeed) getSpeed {
     //if the class is active
     return [self.loc speed];
     //*******
@@ -85,7 +75,7 @@
     return [self getRatePriv];
 }*/
 
-//Returns the total number of measurements
+// Returns the total number of measurements
 - (int) getLogSize {
     if ([self active]) {
         return [self numOfMeasures];

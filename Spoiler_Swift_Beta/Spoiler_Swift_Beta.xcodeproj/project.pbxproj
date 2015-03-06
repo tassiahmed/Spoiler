@@ -14,6 +14,7 @@
 		432A9DB21A8C748C006408C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432A9DB11A8C748C006408C6 /* Images.xcassets */; };
 		432A9DB51A8C748C006408C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 432A9DB31A8C748C006408C6 /* LaunchScreen.xib */; };
 		432A9DC11A8C748C006408C6 /* Spoiler_Swift_BetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432A9DC01A8C748C006408C6 /* Spoiler_Swift_BetaTests.swift */; };
+		435CC8EF1A8EA4D200283408 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CC8EE1A8EA4D200283408 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		432A9DBA1A8C748C006408C6 /* Spoiler_Swift_BetaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Spoiler_Swift_BetaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		432A9DBF1A8C748C006408C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		432A9DC01A8C748C006408C6 /* Spoiler_Swift_BetaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spoiler_Swift_BetaTests.swift; sourceTree = "<group>"; };
+		435CC8EE1A8EA4D200283408 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				432A9DA81A8C748C006408C6 /* AppDelegate.swift */,
 				432A9DAA1A8C748C006408C6 /* FirstViewController.swift */,
 				432A9DAC1A8C748C006408C6 /* SecondViewController.swift */,
+				435CC8EE1A8EA4D200283408 /* Log.swift */,
 				432A9DAE1A8C748C006408C6 /* Main.storyboard */,
 				432A9DB11A8C748C006408C6 /* Images.xcassets */,
 				432A9DB31A8C748C006408C6 /* LaunchScreen.xib */,
@@ -217,6 +220,7 @@
 			files = (
 				432A9DAD1A8C748C006408C6 /* SecondViewController.swift in Sources */,
 				432A9DA91A8C748C006408C6 /* AppDelegate.swift in Sources */,
+				435CC8EF1A8EA4D200283408 /* Log.swift in Sources */,
 				432A9DAB1A8C748C006408C6 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

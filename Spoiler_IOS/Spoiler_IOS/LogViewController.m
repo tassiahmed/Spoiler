@@ -8,29 +8,67 @@
 
 #import "LogViewController.h"
 
-@interface LogViewController ()
-
-@end
+@interface LogViewController () @end
 
 @implementation LogViewController
 
-NSArray *logData;
+
+#pragma mark - Table view data source
+
+//=========================================//
+//======        Table Functions       =====//
+//=========================================//
+
+// Function to retrieve # of sections
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+// Function to retrieve # of rows in table
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.logData count];
+}
+
+// Function to set up and create table vieww to look at past log files
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    // Establish the row element will be a log item
+    static NSString *log = @"LogItem";
+    
+    // Generate a cell in a table
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:log];
+    
+    // Intialize the cell if it is nil
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:log];
+    }
+    
+    // Format the name of the table element
+    NSString *format = [self.logData objectAtIndex:indexPath.row];
+    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    format = [format substringWithRange:NSMakeRange(0, 19)];
+    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
+    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
+    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
+    format = [date stringByAppendingFormat:@" %@", time];
+    
+//    NSLog(@"String name: %@", format);
+    
+    // Set the cell's text to the log name
+    cell.textLabel.text = format;
+    
+    return cell;
+}
+
+//=========================================//
+//======      Overriden Functions     =====//
+//=========================================//
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     NSFileManager* manager = [NSFileManager defaultManager];
-//    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *docsDir = [directories objectAtIndex:0];
-    logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
-    
-//    NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
-//    NSLog(@"Path for log viewer: %@", docsDir);
-    
-    // Initialize table data
-    //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -39,47 +77,6 @@ NSArray *logData;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [logData count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *log = @"LogItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:log];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:log];
-    }
-    
-    NSString *format = [logData objectAtIndex:indexPath.row];
-    
-    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-    format = [format substringWithRange:NSMakeRange(0, 19)];
-    
-    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-    
-    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-
-    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-    
-    format = [date stringByAppendingFormat:@" %@", time];
-    
-//    NSLog(@"String name: %@", format);
-    
-    cell.textLabel.text = format;
-    
-    return cell;
 }
 
 @end
