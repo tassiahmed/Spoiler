@@ -10,6 +10,10 @@
 
 @interface LogViewerController : UITableViewController
 
-@property NSString* fileName;
+@property (weak, nonatomic) IBOutlet UILabel *fileNameLabel;
+
+@property (weak, nonatomic) NSString* fileName;
+
+@property (strong, nonatomic) SharedData* sharedData;
 
 @end

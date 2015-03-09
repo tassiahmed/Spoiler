@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "Log.h"
+#import "SharedData.h"
 
 @interface LogViewController : UITableViewController
 
 @property NSArray *logData;
+
+@property (strong, nonatomic) SharedData* sharedData;
 
 @end

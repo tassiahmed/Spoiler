@@ -9,7 +9,7 @@
 #import "LogViewController.h"
 #import "LogViewerController.h"
 
-static NSString* const SEGUE_LOGVIEW = @"LogView";
+static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 
 @interface LogViewController () @end
 
@@ -94,10 +94,22 @@ static NSString* const SEGUE_LOGVIEW = @"LogView";
 
 //Segue handling for cell
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"Preparing for a segue with segue identifier: %@ Looking for: %@", [segue identifier], SEGUE_LOGVIEW);
+    
     //if this is the correct segue
     if( [[segue identifier] isEqualToString: SEGUE_LOGVIEW]){
-        [sender ]
+        NSLog(@"in if");
+        LogViewerController* lgv = [segue destinationViewController];
+        NSIndexPath* path = [self.tableView indexPathForSelectedRow];
+        NSLog(@"Got path");
+        //get set the log viewer filename to the name of the detail
+        lgv.fileName = [path description];
+        NSLog(@"Set the fileName");
+        //[lgv.fileNameLabel setText:lgv.fileName];
+        NSLog(@"file name for path is %@", lgv.fileName);
     }
+    
+    NSLog(@"After the if");
     
 }
 

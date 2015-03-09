@@ -14,6 +14,11 @@
 
 @implementation LogViewerController
 
+
+- (void)setFileName: (NSString* ) val{
+    self.fileName = [NSString stringWithString:val];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

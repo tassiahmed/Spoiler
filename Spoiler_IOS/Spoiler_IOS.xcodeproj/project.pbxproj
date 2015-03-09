@@ -39,6 +39,7 @@
 		E890AB7B1A17F65400750455 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E890AB781A17F65400750455 /* LogViewController.m */; };
 		E890AB7C1A17F65400750455 /* SpeedMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */; };
 		E8A2CA461AAE040000962A08 /* LogViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A2CA451AAE040000962A08 /* LogViewerController.m */; };
+		E8A2CA491AAE126E00962A08 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A2CA481AAE126E00962A08 /* SharedData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedMonitorViewController.m; sourceTree = "<group>"; };
 		E8A2CA441AAE040000962A08 /* LogViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewerController.h; sourceTree = "<group>"; };
 		E8A2CA451AAE040000962A08 /* LogViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewerController.m; sourceTree = "<group>"; };
+		E8A2CA471AAE125100962A08 /* SharedData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
+		E8A2CA481AAE126E00962A08 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,8 @@
 			children = (
 				43DAD5091AA63B3A0081F540 /* Log */,
 				43DAD50A1AA63B420081F540 /* App Delegate */,
+				E8A2CA471AAE125100962A08 /* SharedData.h */,
+				E8A2CA481AAE126E00962A08 /* SharedData.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A2CA491AAE126E00962A08 /* SharedData.m in Sources */,
 				432D80671A187610005E9608 /* IASKSpecifier.m in Sources */,
 				432D80691A187610005E9608 /* IASKPSSliderSpecifierViewCell.m in Sources */,
 				432D80651A187610005E9608 /* IASKSettingsStoreFile.m in Sources */,
