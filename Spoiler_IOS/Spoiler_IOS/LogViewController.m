@@ -9,6 +9,8 @@
 #import "LogViewController.h"
 #import "LogViewerController.h"
 
+static NSString* const SEGUE_LOGVIEW = @"LogView";
+
 @interface LogViewController () @end
 
 @implementation LogViewController
@@ -92,7 +94,11 @@
 
 //Segue handling for cell
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //LogViewerController* vc = [segue ]
+    //if this is the correct segue
+    if( [[segue identifier] isEqualToString: SEGUE_LOGVIEW]){
+        [sender ]
+    }
+    
 }
 
 //=========================================//
