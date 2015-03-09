@@ -138,13 +138,14 @@
     self.cllManager = [[CLLocationManager alloc] init];
     // Start retrieving location data
     [self.cllManager startUpdatingLocation];
-    
-    //get the location
+
+    // Store the retrieved location in loc
     self.loc = [self.cllManager location];
-    //self.cllManager = nil;
-    //get the speed according to the desired speed system (kph/mph)
-    double velo = self.loc.speed * self.SPEEDSYSTEM;
-    //update the label
+    
+    // Retrieve speed from the stored location data
+    double velo = self.loc.speed;
+    
+    // Update the label
     [self lblUpdate:velo];
     
     // Add the measurment and check to see if the measurement has been added,
@@ -219,10 +220,8 @@
     // Close up the file
     [self stopFile];
     
-    
-    
-    //start the timer for updating the label
-    self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.RATE target:self selector: @selector(tick) userInfo:nil repeats:YES];
+    // End the label timer
+    [self.lblTimer invalidate];
 }
 
 
