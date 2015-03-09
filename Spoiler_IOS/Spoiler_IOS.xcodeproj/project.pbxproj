@@ -38,6 +38,7 @@
 		E818116519D0F78100D3B5EB /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = E818116419D0F78100D3B5EB /* Log.m */; };
 		E890AB7B1A17F65400750455 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E890AB781A17F65400750455 /* LogViewController.m */; };
 		E890AB7C1A17F65400750455 /* SpeedMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */; };
+		E8A2CA461AAE040000962A08 /* LogViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A2CA451AAE040000962A08 /* LogViewerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,8 @@
 		E890AB781A17F65400750455 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		E890AB791A17F65400750455 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedMonitorViewController.h; sourceTree = "<group>"; };
 		E890AB7A1A17F65400750455 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedMonitorViewController.m; sourceTree = "<group>"; };
+		E8A2CA441AAE040000962A08 /* LogViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewerController.h; sourceTree = "<group>"; };
+		E8A2CA451AAE040000962A08 /* LogViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +302,8 @@
 			children = (
 				43DAD50B1AA63B540081F540 /* Speed Monitor */,
 				43DAD50C1AA63B680081F540 /* Log View */,
+				E8A2CA441AAE040000962A08 /* LogViewerController.h */,
+				E8A2CA451AAE040000962A08 /* LogViewerController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				43CB45BC19C8D0EE0054FD8A /* AppDelegate.m in Sources */,
 				432D80611A187610005E9608 /* IASKAppSettingsWebViewController.m in Sources */,
 				43CB45B819C8D0EE0054FD8A /* main.m in Sources */,
+				E8A2CA461AAE040000962A08 /* LogViewerController.m in Sources */,
 				432D806D1A187610005E9608 /* IASKTextField.m in Sources */,
 				432D80641A187610005E9608 /* IASKSettingsStore.m in Sources */,
 				432D80661A187610005E9608 /* IASKSettingsStoreUserDefaults.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "LogViewController.h"
+#import "LogViewerController.h"
 
 @interface LogViewController () @end
 
@@ -87,6 +88,11 @@
     cell.textLabel.text = format;
     
     return cell;
+}
+
+//Segue handling for cell
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //LogViewerController* vc = [segue ]
 }
 
 //=========================================//
