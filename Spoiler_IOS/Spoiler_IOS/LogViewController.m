@@ -13,6 +13,9 @@
 @implementation LogViewController
 
 
+// Array of logs
+NSArray *logData;
+
 #pragma mark - Table view data source
 
 //=========================================//
@@ -26,8 +29,40 @@
 
 // Function to retrieve # of rows in table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.logData count];
+    return [logData count];
 }
+
+
+// Function to format the file name of the Log File
+- (NSString *) parseFileName: (NSString*) name {
+    // Copy of original input
+    NSString *format = [NSString stringWithFormat:@"%@", name];
+    
+    // Format the string to show a proper log name
+    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    format = [format substringWithRange:NSMakeRange(0, 19)];
+    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
+    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
+    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
+    format = [date stringByAppendingFormat:@" %@", time];
+    
+    return format;
+}
+
+// Function to undo the format of the Log File Name
+- (NSString *) unparseFileName: (NSString *) name {
+    NSString * format = [NSString stringWithFormat:@"%@", name];
+    
+    format = [format stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+    format = [format stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    format = [format stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+    format = [format stringByAppendingFormat:@".log"];
+    
+    return format;
+
+
+}
+
 
 // Function to set up and create table vieww to look at past log files
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -44,15 +79,8 @@
     }
     
     // Format the name of the table element
-    NSString *format = [self.logData objectAtIndex:indexPath.row];
-//    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-//    format = [format substringWithRange:NSMakeRange(0, 19)];
-//    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-//    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-//    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-//    format = [date stringByAppendingFormat:@" %@", time];
-    
-//    NSLog(@"String name: %@", format);
+    NSString *format = [logData objectAtIndex:indexPath.row];
+    format = [self parseFileName:format];
     
     // Set the cell's text to the log name
     cell.textLabel.text = format;
@@ -68,7 +96,7 @@
     [super viewDidLoad];
     
     NSFileManager* manager = [NSFileManager defaultManager];
-    self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
+    logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
