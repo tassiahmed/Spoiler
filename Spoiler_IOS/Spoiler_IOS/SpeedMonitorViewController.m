@@ -37,21 +37,6 @@
     [self.fileSys closeFile];
 }
 
-- (NSString *) formatFileName: (NSString*) name {
-    // Copy of original input
-    NSString *format = [NSString stringWithFormat:@"%@", name];
-    
-    // Format the string to show a proper log name
-    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-    format = [format substringWithRange:NSMakeRange(0, 19)];
-    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-    format = [date stringByAppendingFormat:@" %@", time];
-    
-    return format;
-}
-
 // Function to prepare file for writing measurements into
 -(void) runFileSetup:(double)rate {
     
@@ -66,19 +51,18 @@
     NSString* dateStr = [NSString stringWithString:[df stringFromDate:date]];
     NSString* docsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSString* name = [NSString stringWithFormat:@"%@.log",dateStr];
-    NSString* correct_name = [self formatFileName:name];
     
-    NSLog(@"Name of file : %@", correct_name);
+    NSLog(@"Name of file : %@", name);
 
     
-    NSString* path = [docsDir stringByAppendingPathComponent:correct_name];
+    NSString* path = [docsDir stringByAppendingPathComponent:name];
     
     // Make a reference to new file for writing
     self.currFile = path;
     self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
     
     // Create meta data
-    NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", correct_name, rate];
+    NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", dateStr, rate];
     
 //    NSLog(@"File path for writing: %@", self.currFile);
     
