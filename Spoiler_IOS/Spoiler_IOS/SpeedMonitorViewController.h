@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *StopBtn;
 @property (weak, nonatomic) IBOutlet UILabel *lbl;
 @property (weak, nonatomic) IBOutlet UILabel *activeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 
 // Timer for updating the label
 @property NSTimer * lblTimer;

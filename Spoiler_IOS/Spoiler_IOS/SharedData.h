@@ -10,4 +10,11 @@
 
 @interface SharedData : NSObject
 
+@property double speed_conv;
+@property int rate;
+
+-(SharedData*) init;
+
+-(NSString*) get_unit_type;
+
 @end

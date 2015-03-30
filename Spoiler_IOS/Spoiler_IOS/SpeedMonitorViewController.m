@@ -165,6 +165,9 @@
     // Retrieve speed from the stored location data
     double velo = self.loc.speed;
     
+    // modify it by the appropriate speed system
+    velo *= self.sharedData.speed_conv;
+    
     // Update the label
     [self lblUpdate:velo];
     
@@ -225,7 +228,7 @@
     [self runFileSetup:self.RATE];
     
     // Start the timer for updating the label
-    self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.RATE target:self selector: @selector(tick) userInfo:nil repeats:YES];
+    self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.sharedData.rate target:self selector: @selector(tick) userInfo:nil repeats:YES];
 }
 
 // Function that executed when the user presse the Stop button
@@ -259,10 +262,13 @@
     [self.RunBtn setEnabled:YES];
     [self setupAnim];
     
+    if (!self.sharedData) {
+        self.sharedData = [[SharedData alloc] init];
+    }
     
+    [self.unitLabel setText: [self.sharedData get_unit_type]];
     
-    self.RATE = 1.0;
-    self.SPEEDSYSTEM = 2.236;
+
 }
 
 - (void)didReceiveMemoryWarning {
