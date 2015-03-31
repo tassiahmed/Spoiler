@@ -22,30 +22,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     return [[NSString stringWithFormat:@"%@_%@", str2, str3] substringToIndex:19];
 }
 
-//NSArray *logData;
-/*- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    NSFileManager* manager = [NSFileManager defaultManager];
-//    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *docsDir = [directories objectAtIndex:0];
-    logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
-    //[self convertForTable:logData];
-    NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
-    //NSLog(@"Path for log viewer: %@", docsDir);
-    
-    
-    // Initialize table data
-    //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
-#pragma mark - Table view data source
+#pragma mark - Table Functions
 
 //=========================================//
 //======        Table Functions       =====//
@@ -136,6 +113,16 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
 }
 
+-(void) bindDatas {
+    [self.tableView reloadData];
+    if(self.refresh != nil && self.refresh.isRefreshing == TRUE)
+    {
+        [self.refreshControl endRefreshing];
+    }
+}
+
+#pragma mark - Overriden Functions
+
 //=========================================//
 //======      Overriden Functions     =====//
 //=========================================//
@@ -147,9 +134,36 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     NSFileManager* manager = [NSFileManager defaultManager];
     self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     
+    self.refresh = [UIRefreshControl new];
+    self.refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    [self.refresh addTarget:self action:@selector(bindDatas) forControlEvents:UIControlEventValueChanged];
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+/*- (void)viewDidLoad {
+ [super viewDidLoad];
+ 
+ NSFileManager* manager = [NSFileManager defaultManager];
+ //    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+ //    NSString *docsDir = [directories objectAtIndex:0];
+ logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
+ //[self convertForTable:logData];
+ NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
+ //NSLog(@"Path for log viewer: %@", docsDir);
+ 
+ 
+ // Initialize table data
+ //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
+ 
+ // Uncomment the following line to preserve selection between presentations.
+ // self.clearsSelectionOnViewWillAppear = NO;
+ 
+ // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+ // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+ }
+ */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
