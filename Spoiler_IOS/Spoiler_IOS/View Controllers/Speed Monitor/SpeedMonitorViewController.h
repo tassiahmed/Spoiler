@@ -11,6 +11,7 @@
 #import "SharedData.h"
 
 @interface SpeedMonitorViewController : UIViewController
+        <CLLocationManagerDelegate>
 
 // Action variables connected to app page
 @property (weak, nonatomic) IBOutlet UIButton *RunBtn;
