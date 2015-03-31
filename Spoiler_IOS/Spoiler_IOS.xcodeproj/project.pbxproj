@@ -226,6 +226,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		43CA76331ACB195B009F52B0 /* Log Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				E8A2CA441AAE040000962A08 /* LogViewerController.h */,
+				E8A2CA451AAE040000962A08 /* LogViewerController.m */,
+			);
+			name = "Log Viewer";
+			sourceTree = "<group>";
+		};
+		43CA76341ACB1977009F52B0 /* Shared Data */ = {
+			isa = PBXGroup;
+			children = (
+				E8A2CA471AAE125100962A08 /* SharedData.h */,
+				E8A2CA481AAE126E00962A08 /* SharedData.m */,
+			);
+			name = "Shared Data";
+			sourceTree = "<group>";
+		};
 		43CB459F19C8D0EE0054FD8A = {
 			isa = PBXGroup;
 			children = (
@@ -305,8 +323,7 @@
 			children = (
 				43DAD50B1AA63B540081F540 /* Speed Monitor */,
 				43DAD50C1AA63B680081F540 /* Log View */,
-				E8A2CA441AAE040000962A08 /* LogViewerController.h */,
-				E8A2CA451AAE040000962A08 /* LogViewerController.m */,
+				43CA76331ACB195B009F52B0 /* Log Viewer */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -314,10 +331,9 @@
 		43DAD5081AA63B1A0081F540 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				43CA76341ACB1977009F52B0 /* Shared Data */,
 				43DAD5091AA63B3A0081F540 /* Log */,
 				43DAD50A1AA63B420081F540 /* App Delegate */,
-				E8A2CA471AAE125100962A08 /* SharedData.h */,
-				E8A2CA481AAE126E00962A08 /* SharedData.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
