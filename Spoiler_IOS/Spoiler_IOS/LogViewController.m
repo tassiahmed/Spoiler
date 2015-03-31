@@ -61,6 +61,35 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     return [self.logData count];
 }
 
+// Function to format the file name of the Log File
+- (NSString *) parseFileName: (NSString*) name {
+    // Copy of original input
+    NSString *format = [NSString stringWithFormat:@"%@", name];
+    
+    // Format the string to show a proper log name
+    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    format = [format substringWithRange:NSMakeRange(0, 19)];
+    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
+    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
+    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
+    format = [date stringByAppendingFormat:@" %@", time];
+    
+    return format;
+}
+
+// Function to undo the format of the Log File Name
+- (NSString *) unparseFileName: (NSString *) name {
+    NSString * format = [NSString stringWithFormat:@"%@", name];
+    
+    format = [format stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+    format = [format stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    format = [format stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+    format = [format stringByAppendingFormat:@".log"];
+    
+    return format;
+}
+
+
 // Function to set up and create table vieww to look at past log files
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
@@ -77,14 +106,8 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
     // Format the name of the table element
     NSString *format = [self.logData objectAtIndex:indexPath.row];
-//    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-//    format = [format substringWithRange:NSMakeRange(0, 19)];
-//    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-//    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-//    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-//    format = [date stringByAppendingFormat:@" %@", time];
-    
-//    NSLog(@"String name: %@", format);
+
+    format  = [self parseFileName:format];
     
     // Set the cell's text to the log name
     cell.textLabel.text = format;
