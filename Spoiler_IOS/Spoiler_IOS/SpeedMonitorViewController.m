@@ -158,7 +158,7 @@
     self.cllManager = [[CLLocationManager alloc] init];
     // Start retrieving location data
     [self.cllManager startUpdatingLocation];
-
+    
     // Store the retrieved location in loc
     self.loc = [self.cllManager location];
     
