@@ -140,12 +140,7 @@
 - (void) tick {
     
     /*
-    
-    // Initialize the CLLocationManager
-    //self.cllManager = [[CLLocationManager alloc] init];
-    // Start retrieving location data
-    //[self.cllManager startUpdatingLocation];
-    
+     
     // Store the retrieved location in loc
     self.loc = [self.cllManager location];
     
@@ -174,7 +169,6 @@
     
     // Stop updating the location.  Will save battery.
     [self.cllManager stopUpdatingLocation];
-    //self.cllManager = nil;
 }
 
 # pragma mark - Start/Stop Functions

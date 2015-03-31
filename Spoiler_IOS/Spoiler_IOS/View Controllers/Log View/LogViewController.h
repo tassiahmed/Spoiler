@@ -15,6 +15,8 @@
 
 @property NSArray *logData;
 
+@property UIRefreshControl *refresh;
+
 @property (strong, nonatomic) SharedData* sharedData;
 
 @end

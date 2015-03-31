@@ -123,7 +123,6 @@
 		43CB45D519C8D0EE0054FD8A /* Spoiler_IOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Spoiler_IOSTests-Info.plist"; sourceTree = "<group>"; };
 		43CB45D719C8D0EE0054FD8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spoiler_IOSTests.m; sourceTree = "<group>"; };
-		E858ED891A8D313000AD7D1B /* Vars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vars.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +283,6 @@
 				43CB45BD19C8D0EE0054FD8A /* Main.storyboard */,
 				43CB45C619C8D0EE0054FD8A /* Images.xcassets */,
 				43CB45B219C8D0EE0054FD8A /* Supporting Files */,
-				E858ED891A8D313000AD7D1B /* Vars.h */,
 			);
 			path = Spoiler_IOS;
 			sourceTree = "<group>";
