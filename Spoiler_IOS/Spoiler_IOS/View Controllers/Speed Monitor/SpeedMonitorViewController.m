@@ -13,6 +13,7 @@
 
 @implementation SpeedMonitorViewController
 
+#pragma mark - File Writing Functions
 
 //=========================================//
 //======    File Writing Functions    =====//
@@ -37,8 +38,6 @@
 - (void) stopFile {
     [self.fileSys closeFile];
 }
-
-
 
 // Function to prepare file for writing measurements into
 -(void) runFileSetup:(double)rate {
@@ -73,7 +72,7 @@
     [self writeToFile:self.fileSys data:toWrite];
 }
 
-
+#pragma mark - UI Functions
 
 //=========================================//
 //======         UI Functions         =====//
@@ -128,6 +127,8 @@
     [self.lbl setText:@"0"];
 }
 
+# pragma mark - Location Functions
+
 //=========================================//
 //======      Location Functions      =====//
 //=========================================//
@@ -167,8 +168,6 @@
      */
     
 }
- 
-
 
 // Function to stop retreiving location
 - (void) stopLocation {
@@ -178,6 +177,7 @@
     //self.cllManager = nil;
 }
 
+# pragma mark - Start/Stop Functions
 
 //=========================================//
 //======     Start/Stop Functions     =====//
@@ -239,7 +239,7 @@
     [self.lblTimer invalidate];
 }
 
-
+#pragma mark - Overriden Functions
 
 //=========================================//
 //======      Overriden Functions     =====//
@@ -268,16 +268,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     // NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
