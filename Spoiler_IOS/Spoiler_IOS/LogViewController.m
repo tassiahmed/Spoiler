@@ -106,14 +106,8 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
     // Format the name of the table element
     NSString *format = [self.logData objectAtIndex:indexPath.row];
-//    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-//    format = [format substringWithRange:NSMakeRange(0, 19)];
-//    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-//    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-//    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-//    format = [date stringByAppendingFormat:@" %@", time];
-    
-//    NSLog(@"String name: %@", format);
+
+    format  = [self parseFileName:format];
     
     // Set the cell's text to the log name
     cell.textLabel.text = format;
