@@ -38,20 +38,7 @@
     [self.fileSys closeFile];
 }
 
-- (NSString *) formatFileName: (NSString*) name {
-    // Copy of original input
-    NSString *format = [NSString stringWithFormat:@"%@", name];
-    
-    // Format the string to show a proper log name
-    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-    format = [format substringWithRange:NSMakeRange(0, 19)];
-    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-    format = [date stringByAppendingFormat:@" %@", time];
-    
-    return format;
-}
+
 
 // Function to prepare file for writing measurements into
 -(void) runFileSetup:(double)rate {
@@ -67,22 +54,17 @@
     NSString* dateStr = [NSString stringWithString:[df stringFromDate:date]];
     NSString* docsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSString* name = [NSString stringWithFormat:@"%@.log",dateStr];
-    NSString* correct_name = [self formatFileName:name];
     
-    NSLog(@"Name of file : %@", correct_name);
-
     
-    NSString* path = [docsDir stringByAppendingPathComponent:correct_name];
+    NSString* path = [docsDir stringByAppendingPathComponent:name];
     
     // Make a reference to new file for writing
     self.currFile = path;
     self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
     
     // Create meta data
-    NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", correct_name, rate];
-    
-//    NSLog(@"File path for writing: %@", self.currFile);
-    
+    NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", name, rate];
+        
     // Create file manager for writing measurements
     NSFileManager* manager = [NSFileManager defaultManager];
     [manager createFileAtPath:self.currFile contents: [toWrite dataUsingEncoding:NSASCIIStringEncoding] attributes:nil];
@@ -152,12 +134,16 @@
 
 // Function that is called at the rate of RATE
 // to get location and data and parse needed data from it
+
+
 - (void) tick {
     
+    /*
+    
     // Initialize the CLLocationManager
-    self.cllManager = [[CLLocationManager alloc] init];
+    //self.cllManager = [[CLLocationManager alloc] init];
     // Start retrieving location data
-    [self.cllManager startUpdatingLocation];
+    //[self.cllManager startUpdatingLocation];
     
     // Store the retrieved location in loc
     self.loc = [self.cllManager location];
@@ -177,14 +163,19 @@
         [self lblUpdate:-1];
         [self.activeLabel setText:@"SPEED NOT ADDED"];
     }
+    
+     */
+    
 }
+ 
+
 
 // Function to stop retreiving location
 - (void) stopLocation {
     
     // Stop updating the location.  Will save battery.
     [self.cllManager stopUpdatingLocation];
-    self.cllManager = nil;
+    //self.cllManager = nil;
 }
 
 
@@ -207,6 +198,7 @@
     }
     
     // Set the accuracy of CLLocationManager
+    [self.cllManager setDelegate:self];
     [self.cllManager setPausesLocationUpdatesAutomatically:NO];
     [self.cllManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
     [self.cllManager setDistanceFilter:kCLDistanceFilterNone];
@@ -274,6 +266,38 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    // NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        
+        double velo = currentLocation.speed;
+        
+        // modify it by the appropriate speed system
+        velo *= self.sharedData.speed_conv;
+        
+        // Update the label
+        [self lblUpdate:velo];
+        
+        // Add the measurment and check to see if the measurement has been added,
+        // if not print out an error text alerting user
+        if(![self addMeasurement:velo]){
+            [self lblUpdate:-1];
+            [self.activeLabel setText:@"SPEED NOT ADDED"];
+        }
+    }
 }
 
 @end
