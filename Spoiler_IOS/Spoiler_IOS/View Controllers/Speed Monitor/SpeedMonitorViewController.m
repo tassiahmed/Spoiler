@@ -13,7 +13,7 @@
 
 @implementation SpeedMonitorViewController
 
-#pragma mark - File Writing Functions
+#pragma mark - File Writing
 
 //=========================================//
 //======    File Writing Functions    =====//
@@ -72,7 +72,7 @@
     [self writeToFile:self.fileSys data:toWrite];
 }
 
-#pragma mark - UI Functions
+#pragma mark - UI
 
 //=========================================//
 //======         UI Functions         =====//
@@ -127,7 +127,7 @@
     [self.lbl setText:@"0"];
 }
 
-# pragma mark - Location Functions
+# pragma mark - Location
 
 //=========================================//
 //======      Location Functions      =====//
@@ -171,7 +171,7 @@
     [self.cllManager stopUpdatingLocation];
 }
 
-# pragma mark - Start/Stop Functions
+# pragma mark - Start/Stop
 
 //=========================================//
 //======     Start/Stop Functions     =====//
@@ -233,7 +233,7 @@
     [self.lblTimer invalidate];
 }
 
-#pragma mark - Overriden Functions
+#pragma mark - Overriden
 
 //=========================================//
 //======      Overriden Functions     =====//

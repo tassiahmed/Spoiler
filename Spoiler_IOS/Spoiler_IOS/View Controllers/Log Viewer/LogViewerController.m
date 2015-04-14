@@ -7,6 +7,8 @@
 //
 
 #import "LogViewerController.h"
+#import <UIKit/UIKit.h>
+
 
 @interface LogViewerController ()
 
@@ -16,7 +18,7 @@
 
 
 - (void)setFileName: (NSString* ) val{
-    self.fileName = [NSString stringWithString:val];
+    self.fileName = val;
 }
 
 - (void)viewDidLoad {
