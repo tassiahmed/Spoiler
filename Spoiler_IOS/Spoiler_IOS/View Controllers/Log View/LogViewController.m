@@ -22,7 +22,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     return [[NSString stringWithFormat:@"%@_%@", str2, str3] substringToIndex:19];
 }
 
-#pragma mark - Table Functions
+#pragma mark - Table
 
 //=========================================//
 //======        Table Functions       =====//
@@ -102,11 +102,12 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
         LogViewerController* lgv = [segue destinationViewController];
         NSIndexPath* path = [self.tableView indexPathForSelectedRow];
         NSLog(@"Got path");
-        //get set the log viewer filename to the name of the detail
-        lgv.fileName = [path description];
+        // Get set the log viewer filename to the name of the detail
+        NSString* description = [path description];
+        NSLog(@"%@", description);
+        //[lgv setFileName:description];
         NSLog(@"Set the fileName");
-        //[lgv.fileNameLabel setText:lgv.fileName];
-        NSLog(@"file name for path is %@", lgv.fileName);
+        //NSLog(@"file name for path is %@", lgv.fileName);
     }
     
     NSLog(@"After the if");
@@ -121,7 +122,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     }
 }
 
-#pragma mark - Overriden Functions
+#pragma mark - Overriden
 
 //=========================================//
 //======      Overriden Functions     =====//
@@ -130,6 +131,11 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.topItem.title = @"";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;*/
     
     NSFileManager* manager = [NSFileManager defaultManager];
     self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
@@ -141,29 +147,6 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-/*- (void)viewDidLoad {
- [super viewDidLoad];
- 
- NSFileManager* manager = [NSFileManager defaultManager];
- //    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
- //    NSString *docsDir = [directories objectAtIndex:0];
- logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
- //[self convertForTable:logData];
- NSLog(@"Log Size = %lu",(unsigned long)[logData count]);
- //NSLog(@"Path for log viewer: %@", docsDir);
- 
- 
- // Initialize table data
- //logData = [NSArray arrayWithObjects:@"Test", @"Test", @"Test", nil];
- 
- // Uncomment the following line to preserve selection between presentations.
- // self.clearsSelectionOnViewWillAppear = NO;
- 
- // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
- // self.navigationItem.rightBarButtonItem = self.editButtonItem;
- }
- */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
