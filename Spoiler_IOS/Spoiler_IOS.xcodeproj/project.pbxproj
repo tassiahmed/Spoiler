@@ -22,10 +22,10 @@
 		432D806C1A187610005E9608 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 432D805D1A187610005E9608 /* IASKSwitch.m */; };
 		432D806D1A187610005E9608 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 432D805F1A187610005E9608 /* IASKTextField.m */; };
 		432D806F1A1876B2005E9608 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 432D806E1A1876B2005E9608 /* Settings.bundle */; };
+		43C3D69F1AE03CF4002109B0 /* SpeedMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C3D69E1AE03CF4002109B0 /* SpeedMonitorViewController.m */; };
 		43CA76371ACB1BAB009F52B0 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CA76361ACB1BAB009F52B0 /* SharedData.m */; };
 		43CA763A1ACB1BBD009F52B0 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CA76391ACB1BBD009F52B0 /* Log.m */; };
 		43CA763D1ACB1BCB009F52B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CA763C1ACB1BCB009F52B0 /* AppDelegate.m */; };
-		43CA76401ACB1BDC009F52B0 /* SpeedMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CA763F1ACB1BDC009F52B0 /* SpeedMonitorViewController.m */; };
 		43CA76431ACB1BE7009F52B0 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CA76421ACB1BE7009F52B0 /* LogViewController.m */; };
 		43CA76461ACB1BF6009F52B0 /* LogViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CA76451ACB1BF6009F52B0 /* LogViewerController.m */; };
 		43CB45AC19C8D0EE0054FD8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CB45AB19C8D0EE0054FD8A /* Foundation.framework */; };
@@ -96,6 +96,7 @@
 		432D805E1A187610005E9608 /* IASKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTextField.h; sourceTree = "<group>"; };
 		432D805F1A187610005E9608 /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
 		432D806E1A1876B2005E9608 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Spoiler_IOS/Resources/Settings.bundle; sourceTree = "<group>"; };
+		43C3D69E1AE03CF4002109B0 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeedMonitorViewController.m; path = "View Controllers/Speed Monitor/SpeedMonitorViewController.m"; sourceTree = "<group>"; };
 		43CA76351ACB1BAB009F52B0 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedData.h; path = "Objects/Shared Data/SharedData.h"; sourceTree = "<group>"; };
 		43CA76361ACB1BAB009F52B0 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedData.m; path = "Objects/Shared Data/SharedData.m"; sourceTree = "<group>"; };
 		43CA76381ACB1BBD009F52B0 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Objects/Log/Log.h; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		43CA763B1ACB1BCB009F52B0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Objects/App Delegate/AppDelegate.h"; sourceTree = "<group>"; };
 		43CA763C1ACB1BCB009F52B0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Objects/App Delegate/AppDelegate.m"; sourceTree = "<group>"; };
 		43CA763E1ACB1BDC009F52B0 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeedMonitorViewController.h; path = "View Controllers/Speed Monitor/SpeedMonitorViewController.h"; sourceTree = "<group>"; };
-		43CA763F1ACB1BDC009F52B0 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeedMonitorViewController.m; path = "View Controllers/Speed Monitor/SpeedMonitorViewController.m"; sourceTree = "<group>"; };
 		43CA76411ACB1BE7009F52B0 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogViewController.h; path = "View Controllers/Log View/LogViewController.h"; sourceTree = "<group>"; };
 		43CA76421ACB1BE7009F52B0 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogViewController.m; path = "View Controllers/Log View/LogViewController.m"; sourceTree = "<group>"; };
 		43CA76441ACB1BF6009F52B0 /* LogViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogViewerController.h; path = "View Controllers/Log Viewer/LogViewerController.h"; sourceTree = "<group>"; };
@@ -225,6 +225,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		43C3D6541AE02E2E002109B0 /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Test Files";
+			sourceTree = "<group>";
+		};
 		43CA76331ACB195B009F52B0 /* Log Viewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +329,7 @@
 				43DAD50B1AA63B540081F540 /* Speed Monitor */,
 				43DAD50C1AA63B680081F540 /* Log View */,
 				43CA76331ACB195B009F52B0 /* Log Viewer */,
+				43C3D6541AE02E2E002109B0 /* Test Files */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -358,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				43CA763E1ACB1BDC009F52B0 /* SpeedMonitorViewController.h */,
-				43CA763F1ACB1BDC009F52B0 /* SpeedMonitorViewController.m */,
+				43C3D69E1AE03CF4002109B0 /* SpeedMonitorViewController.m */,
 			);
 			name = "Speed Monitor";
 			sourceTree = "<group>";
@@ -495,9 +503,9 @@
 				43CA763A1ACB1BBD009F52B0 /* Log.m in Sources */,
 				432D806B1A187610005E9608 /* IASKSlider.m in Sources */,
 				432D80601A187610005E9608 /* IASKAppSettingsViewController.m in Sources */,
+				43C3D69F1AE03CF4002109B0 /* SpeedMonitorViewController.m in Sources */,
 				432D80611A187610005E9608 /* IASKAppSettingsWebViewController.m in Sources */,
 				43CA76431ACB1BE7009F52B0 /* LogViewController.m in Sources */,
-				43CA76401ACB1BDC009F52B0 /* SpeedMonitorViewController.m in Sources */,
 				43CB45B819C8D0EE0054FD8A /* main.m in Sources */,
 				432D806D1A187610005E9608 /* IASKTextField.m in Sources */,
 				432D80641A187610005E9608 /* IASKSettingsStore.m in Sources */,

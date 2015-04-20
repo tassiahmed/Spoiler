@@ -1,9 +1,9 @@
 //
 //  SharedData.h
-//  Spoiler_IOS
+//  Spoiler_Test
 //
-//  Created by Evan Thompson on 3/25/15.
-//  Copyright (c) 2015 Spoiler. All rights reserved.
+//  Created by Tausif Ahmed on 4/16/15.
+//  Copyright (c) 2015 Tausif. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,6 +16,5 @@
 -(SharedData*) init;
 
 -(NSString*) get_unit_type;
-
 
 @end

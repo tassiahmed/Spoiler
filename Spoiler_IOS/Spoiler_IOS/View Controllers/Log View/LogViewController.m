@@ -140,10 +140,6 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     NSFileManager* manager = [NSFileManager defaultManager];
     self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     
-    self.refresh = [UIRefreshControl new];
-    self.refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
-    [self.refresh addTarget:self action:@selector(bindDatas) forControlEvents:UIControlEventValueChanged];
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

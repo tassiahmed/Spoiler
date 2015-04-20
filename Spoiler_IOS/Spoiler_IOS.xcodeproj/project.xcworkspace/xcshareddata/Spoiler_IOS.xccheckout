@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>872B8F33DB382592A0A99F83FCD6481960E19F90</key>
-		<string>github.com:emt13/Spoiler.git</string>
+		<string>http://github.com/tassiahmed/Spoiler</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Spoiler_IOS/Spoiler_IOS.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:emt13/Spoiler.git</string>
+	<string>http://github.com/tassiahmed/Spoiler</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
