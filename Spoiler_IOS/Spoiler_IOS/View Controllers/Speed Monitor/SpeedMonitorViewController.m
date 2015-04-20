@@ -21,7 +21,7 @@
 
 // Function to open up a file to write measurements to
 -(void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data {
-//    NSLog(@"Writing to file (%@) : %@", self.currFile, data);
+        NSLog(@"Writing to file (%@) : %@", self.currFile, data);
         [self.fileSys seekToEndOfFile];
         [self.fileSys writeData:[data dataUsingEncoding:NSASCIIStringEncoding]];
 }
@@ -68,7 +68,7 @@
     NSFileManager* manager = [NSFileManager defaultManager];
     [manager createFileAtPath:self.currFile contents: [toWrite dataUsingEncoding:NSASCIIStringEncoding] attributes:nil];
     
-    // Write to the file
+    // Write to the filest
     [self writeToFile:self.fileSys data:toWrite];
 }
 
@@ -217,7 +217,7 @@
     self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.sharedData.rate target:self selector: @selector(tick) userInfo:nil repeats:YES];
 }
 
-// Function that executed when the user presse the Stop button
+// Function that executed when the user presses the Stop button
 - (IBAction)onStop:(id)sender {
     
     // Set the UI to the stop state
@@ -263,21 +263,20 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError: %@", error);
+    NSLog(@"didFailWithErr or: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    // NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
         
         double velo = currentLocation.speed;
         
-        // modify it by the appropriate speed system
+        // Modify it by the appropriate speed system
         velo *= self.sharedData.speed_conv;
         
         // Update the label
