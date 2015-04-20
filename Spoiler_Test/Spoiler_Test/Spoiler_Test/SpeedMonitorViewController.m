@@ -30,7 +30,7 @@
     // Dispose of any resources that can be created
 }
 
-#pragma mark Initialization
+#pragma mark - Initialization
 
 // Function to set up animations
 -(void) setupAnimation {
@@ -47,21 +47,19 @@
 
 -(void) setUpSpeedMonitor {
     
-    [self.view setBackgroundColor: [UIColor blackColor]];
+    [self.view setBackgroundColor: [UIColor whiteColor]];
     
     UILabel *name = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH + 100, SPEED_HEIGHT)];
     [name setText: @"Speed Monitor"];
-    [name setCenter: CGPointMake(self.view.center.x, self.view.center.y - 200)];
-    [name setFont: [name.font fontWithSize: 25]];
-    [name setTextColor: [UIColor whiteColor]];
+    [name setCenter: CGPointMake(self.view.center.x, self.view.center.y - 250)];
+    [name setFont: [name.font fontWithSize: 30]];
     [self.view addSubview: name];
 
     
     
     self.startButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.startButton setTitle: @"Start" forState: UIControlStateNormal];
-    [self.startButton setFrame: CGRectMake(0.0, self.view.frame.size.height - (2 * BUTTON_HEIGHT),
-                                           BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [self.startButton setFrame: CGRectMake(0.0, self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height, BUTTON_WIDTH, BUTTON_HEIGHT)];
     [self.startButton setEnabled: YES];
     [self.startButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
     [self.startButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
@@ -78,7 +76,7 @@
     self.stopButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.stopButton setTitle: @"Stop" forState: UIControlStateNormal];
     [self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH,
-                                        self.view.frame.size.height - (2 * BUTTON_HEIGHT),
+                                        self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height,
                                           BUTTON_WIDTH, BUTTON_HEIGHT)];
     [self.stopButton setEnabled: NO];
     [self.stopButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
@@ -94,8 +92,7 @@
     self.statusLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT)];
     [self.statusLabel setText: @"Inactive..."];
     [self.statusLabel setCenter: CGPointMake(self.view.center.x,
-                                             self.view.frame.size.height - (3 * BUTTON_HEIGHT)/2)];
-    [self.statusLabel setTextColor: [UIColor whiteColor]];
+                                             (self.view.frame.size.height - (BUTTON_HEIGHT/2) - self.tabBarController.tabBar.frame.size.height))];
     [self.statusLabel setFont: [self.startButton.titleLabel.font fontWithSize: 20]];
     [self.view addSubview: self.statusLabel];
     
@@ -108,7 +105,6 @@
     
     self.unitLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_WIDTH)];
     [self.unitLabel setText: [self.sharedData get_unit_type]];
-    [self.unitLabel setTextColor: [UIColor whiteColor]];
     [self.unitLabel setCenter: CGPointMake(self.view.center.x + 50, self.view.center.y)];
     [self.unitLabel setFont: [self.speedLabel.font fontWithSize: 40]];
     [self.view addSubview: self.unitLabel];
@@ -129,7 +125,7 @@
     
 }
 
-#pragma mark User Actions
+#pragma mark - User Actions
 
 -(void) runButtonPressed {
     [self.startButton setEnabled: NO];

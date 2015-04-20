@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SpeedMonitorViewController.h"
+#import "LogTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,8 +26,13 @@
     UIImage *speedImage = [UIImage imageNamed: @"first.png"];
     UITabBarItem *speedItem = [[UITabBarItem alloc] initWithTitle: @"Speed" image:speedImage tag:0];
     [speed_monitor setTabBarItem: speedItem];
-                
-    NSArray *controllers = [NSArray arrayWithObjects:speed_monitor, nil];
+    
+    LogTableViewController *logs = [[LogTableViewController alloc] init];
+    UIImage *logImage = [UIImage imageNamed: @"second.png"];
+    UITabBarItem *logItem = [[UITabBarItem alloc] initWithTitle: @"Logs" image:logImage tag:0];
+    [logs setTabBarItem: logItem];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:speed_monitor, logs, nil];
     
     [self.tabBarController setViewControllers: controllers];
     

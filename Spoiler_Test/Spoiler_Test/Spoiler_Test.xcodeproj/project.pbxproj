@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43AFBFB41AE553A700616A6A /* LogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AFBFB31AE553A700616A6A /* LogTableViewController.m */; };
 		43C3D66B1AE0377D002109B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C3D66A1AE0377D002109B0 /* main.m */; };
 		43C3D66E1AE0377D002109B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C3D66D1AE0377D002109B0 /* AppDelegate.m */; };
-		43C3D6711AE0377D002109B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C3D6701AE0377D002109B0 /* ViewController.m */; };
 		43C3D6741AE0377D002109B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C3D6721AE0377D002109B0 /* Main.storyboard */; };
 		43C3D6761AE0377D002109B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C3D6751AE0377D002109B0 /* Images.xcassets */; };
 		43C3D6791AE0377D002109B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C3D6771AE0377D002109B0 /* LaunchScreen.xib */; };
@@ -30,13 +30,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43AFBFB31AE553A700616A6A /* LogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewController.m; sourceTree = "<group>"; };
+		43AFBFB51AE553B300616A6A /* LogTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogTableViewController.h; sourceTree = "<group>"; };
 		43C3D6651AE0377D002109B0 /* Spoiler_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C3D6691AE0377D002109B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C3D66A1AE0377D002109B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		43C3D66C1AE0377D002109B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43C3D66D1AE0377D002109B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		43C3D66F1AE0377D002109B0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		43C3D6701AE0377D002109B0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		43C3D6731AE0377D002109B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43C3D6751AE0377D002109B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		43C3D6781AE0377D002109B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -69,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43AFBFB21AE5537100616A6A /* Log Table */ = {
+			isa = PBXGroup;
+			children = (
+				43AFBFB51AE553B300616A6A /* LogTableViewController.h */,
+				43AFBFB31AE553A700616A6A /* LogTableViewController.m */,
+			);
+			name = "Log Table";
+			sourceTree = "<group>";
+		};
 		43C3D65C1AE0377D002109B0 = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +101,6 @@
 			children = (
 				43C3D6901AE037C8002109B0 /* View Controllers */,
 				43C3D68E1AE037AC002109B0 /* Objects */,
-				43C3D66F1AE0377D002109B0 /* ViewController.h */,
-				43C3D6701AE0377D002109B0 /* ViewController.m */,
 				43C3D6721AE0377D002109B0 /* Main.storyboard */,
 				43C3D6751AE0377D002109B0 /* Images.xcassets */,
 				43C3D6771AE0377D002109B0 /* LaunchScreen.xib */,
@@ -150,8 +157,8 @@
 		43C3D6901AE037C8002109B0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				43C3D6991AE0398E002109B0 /* LogViewController */,
 				43C3D6911AE0380D002109B0 /* Speed Monitor */,
+				43AFBFB21AE5537100616A6A /* Log Table */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -172,13 +179,6 @@
 				43C3D6951AE038AD002109B0 /* SharedData.m */,
 			);
 			name = "Shared Data";
-			sourceTree = "<group>";
-		};
-		43C3D6991AE0398E002109B0 /* LogViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = LogViewController;
 			sourceTree = "<group>";
 		};
 		43C3D69A1AE03998002109B0 /* Log */ = {
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C3D69C1AE039AD002109B0 /* Log.m in Sources */,
+				43AFBFB41AE553A700616A6A /* LogTableViewController.m in Sources */,
 				43C3D6961AE038AD002109B0 /* SharedData.m in Sources */,
 				43C3D6981AE03900002109B0 /* SpeedMonitorViewController.m in Sources */,
-				43C3D6711AE0377D002109B0 /* ViewController.m in Sources */,
 				43C3D66E1AE0377D002109B0 /* AppDelegate.m in Sources */,
 				43C3D66B1AE0377D002109B0 /* main.m in Sources */,
 			);
@@ -490,6 +490,7 @@
 				43C3D68A1AE0377D002109B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43C3D68B1AE0377D002109B0 /* Build configuration list for PBXNativeTarget "Spoiler_TestTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +499,7 @@
 				43C3D68D1AE0377D002109B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
