@@ -7,6 +7,9 @@
 //
 
 #import "LogTableViewController.h"
+#import "LogViewController.h"
+
+static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 
 @interface LogTableViewController() @end
 
@@ -17,30 +20,37 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
-    //do something like background color, title, etc you self
-    
-    [navbar setBackgroundColor: [UIColor whiteColor]];
-    [navbar.topItem setTitle: @"Logs"];
-    [self.view addSubview:navbar];
-
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handle_data) name:@"reload_data" object:nil];
+	
+	[self.navigationController.navigationBar.topItem setTitle: @"Logs"];
+	
     NSFileManager* manager = [NSFileManager defaultManager];
     self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
     
+    self.logData = [[self.logData reverseObjectEnumerator] allObjects];
+    
     self.log_table = [[UITableView alloc] init];
-    [self.log_table setFrame: CGRectMake(0, navbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height - 0)];
+    [self.log_table setFrame: CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
     [self.log_table setDataSource: self];
     [self.log_table setDelegate: self];
-    [self.log_table setBackgroundColor: [UIColor clearColor]];
+    [self.log_table setBackgroundColor: [UIColor colorWithWhite: 235/255.0 alpha:1]];
     [self.log_table setAutoresizingMask: UIViewAutoresizingFlexibleHeight |
                                         UIViewAutoresizingFlexibleWidth];
-    [self.log_table reloadData];
+	[self.log_table reloadData];
     [self.view addSubview: self.log_table];
 }
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)handle_data {
+    NSFileManager* manager = [NSFileManager defaultManager];
+    self.logData = [manager contentsOfDirectoryAtPath: [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:NULL];
+    
+    self.logData = [[self.logData reverseObjectEnumerator] allObjects];
+    
+    [self.log_table reloadData];
 }
 
 #pragma mark - Table Data View
@@ -83,6 +93,26 @@
     return format;
 }
 
+- (void) tableView: (UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
+    /*UIAlertView *messageAlert = [[UIAlertView alloc]
+                                 initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    // Display Alert Message
+    [messageAlert show];*/
+    NSLog(@"%@", [self.logData objectAtIndex: indexPath.row]);
+    self.selected_file = [self.logData objectAtIndex: indexPath.row];
+    
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString: SEGUE_LOGVIEW]) {
+        LogViewController *log = [segue destinationViewController];
+        [log setFileName: [self parseFileName:self.selected_file]];
+    }
+}
+
+
+
 #pragma mark - Table View
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,7 +132,6 @@
     cell.textLabel.text = format;
     
     return cell;
-
 }
 
 

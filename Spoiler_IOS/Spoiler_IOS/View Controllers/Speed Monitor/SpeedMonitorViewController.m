@@ -2,33 +2,187 @@
 //  SpeedMonitorViewController.m
 //  Spoiler_IOS
 //
-//  Evan Thompson, Tausif Ahmed
-//  Copyright (c) 2014 Spoiler. All rights reserved.
+//  Created by Tausif Ahmed on 4/16/15.
+//  Copyright (c) 2015 Tausif. All rights reserved.
 //
 
 #import "SpeedMonitorViewController.h"
-#import "LogViewController.h"
 
-@interface SpeedMonitorViewController ()  @end
+@interface SpeedMonitorViewController() @end
 
 @implementation SpeedMonitorViewController
 
+#pragma mark - View & Misc.
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    if (!self.sharedData) {
+        self.sharedData = [[SharedData alloc] init];
+    }
+    
+    [self setupAnimation];
+    [self setUpSpeedMonitor];
+}
+
+- (void) didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be created
+}
+
+#pragma mark - Initialization
+
+// Function to set up animations
+-(void) setupAnimation {
+    
+    // Setup the pulsing animation for the active label
+    self.animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    [self.animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [self.animation setRepeatCount:HUGE_VALF];
+    [self.animation setFromValue:[NSNumber numberWithFloat:.25]];
+    [self.animation setToValue:[NSNumber numberWithFloat: 1.0]];
+    [self.animation setAutoreverses: YES];
+    [self.animation setDuration:1.0];
+}
+
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+-(void) setUpSpeedMonitor {
+    
+    [self.view setBackgroundColor: [UIColor blackColor]];
+    
+    UILabel *name = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH + 125, SPEED_HEIGHT)];
+    [name setText: @"Speed Monitor"];
+    [name setCenter: CGPointMake(self.view.center.x, self.view.center.y - 200)];
+    [name setFont: [name.font fontWithSize: 30]];
+    [name setTextColor: [UIColor whiteColor]];
+    [name.layer setCornerRadius: 10];
+    [name.layer setBorderWidth: 5];
+    [name.layer setBorderColor: [UIColor whiteColor].CGColor];
+    [name setTextAlignment: NSTextAlignmentCenter];
+    [self.view addSubview: name];
+    
+    self.startButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [self.startButton setTitle: @"Start" forState: UIControlStateNormal];
+    [self.startButton setFrame: CGRectMake(0.0, self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height, BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
+    [self.startButton setEnabled: YES];
+    [self.startButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
+    [self.startButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
+    [self.startButton setUserInteractionEnabled: YES];
+    [self.startButton.titleLabel setFont: [self.startButton.titleLabel.font fontWithSize: 25]];
+    [self.startButton addTarget: self action: @selector(runButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.startButton.layer setCornerRadius: 10];
+    [self.startButton.layer setBorderWidth: 5];
+    [self.startButton.layer setBorderColor: [UIColor blueColor].CGColor];
+    [self.view addSubview: self.startButton];
+    
+    
+    
+    self.stopButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [self.stopButton setTitle: @"Stop" forState: UIControlStateNormal];
+    [self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH,
+                                          self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height,
+                                          BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
+    [self.stopButton setEnabled: NO];
+    [self.stopButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
+    [self.stopButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
+    [self.stopButton setUserInteractionEnabled: YES];
+    [self.stopButton.titleLabel setFont: [self.startButton.titleLabel.font fontWithSize: 25]];
+    [self.stopButton addTarget: self action: @selector(stopButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.stopButton.layer setCornerRadius: 10];
+    [self.stopButton.layer setBorderWidth: 5];
+    [self.stopButton.layer setBorderColor: [UIColor grayColor].CGColor];
+    [self.view addSubview: self.stopButton];
+    
+    self.statusLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [self.statusLabel setText: @"Inactive..."];
+    [self.statusLabel setCenter: CGPointMake(self.view.center.x,
+                                             (self.view.frame.size.height - (BUTTON_HEIGHT/2) - self.tabBarController.tabBar.frame.size.height))];
+    [self.statusLabel setFont: [self.startButton.titleLabel.font fontWithSize: 20]];
+    [self.statusLabel setTextColor: [UIColor whiteColor]];
+    [self.view addSubview: self.statusLabel];
+    
+    self.speedLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, SPEED_HEIGHT)];
+    [self.speedLabel setText: @"0"];
+    [self.speedLabel setCenter: CGPointMake(self.view.center.x - 50, self.view.center.y - 10)];
+    [self.speedLabel setFont: [self.speedLabel.font fontWithSize: 70]];
+    [self.speedLabel setTextColor: [UIColor redColor]];
+    [self.view addSubview: self.speedLabel];
+    
+    self.unitLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_WIDTH)];
+    [self.unitLabel setText: [self.sharedData get_unit_type]];
+    [self.unitLabel setCenter: CGPointMake(self.view.center.x + 50, self.view.center.y)];
+    [self.unitLabel setFont: [self.speedLabel.font fontWithSize: 40]];
+    [self.unitLabel setTextColor: [UIColor whiteColor]];
+    [self.view addSubview: self.unitLabel];
+    
+    
+    self.log = [[Log alloc] init];
+    
+    self.cllManager = [[CLLocationManager alloc] init];
+    
+    if ([self.cllManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.cllManager requestWhenInUseAuthorization];
+    }
+    
+    [self.cllManager setDelegate: self];
+    [self.cllManager setPausesLocationUpdatesAutomatically: NO];
+    [self.cllManager setDesiredAccuracy: kCLLocationAccuracyBestForNavigation];
+    [self.cllManager setDistanceFilter: kCLDistanceFilterNone];
+    
+}
+
+#pragma mark - User Actions
+
+-(void) runButtonPressed {
+    [self.startButton setEnabled: NO];
+    [self.stopButton setEnabled: YES];
+    
+    [self.startButton.layer setBorderColor: [UIColor grayColor].CGColor];
+    [self.stopButton.layer setBorderColor: [UIColor blueColor].CGColor];
+    
+    [self.statusLabel setText: @"Running..."];
+    [[[self statusLabel] layer] addAnimation:self.animation forKey:@"pulse"];
+    
+    
+    [self.cllManager startUpdatingLocation];
+    [self runFileSetup: self.RATE];
+    
+}
+
+-(void) stopButtonPressed {
+    [self.startButton setEnabled: YES];
+    [self.stopButton setEnabled: NO];
+    
+    [self.startButton.layer setBorderColor: [UIColor blueColor].CGColor];
+    [self.stopButton.layer setBorderColor: [UIColor grayColor].CGColor];
+    
+    [self.statusLabel setText: @"Inactive..."];
+    [[[self statusLabel] layer] removeAnimationForKey:@"pulse"];
+    [self.speedLabel setText: @"0"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+    
+    [self stopLocation];
+    [self stopFile];
+    
+    
+}
+
 #pragma mark - File Writing
 
-//=========================================//
-//======    File Writing Functions    =====//
-//=========================================//
-
-// Function to open up a file to write measurements to
+// Function to write a new measurement to the open file
 -(void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data {
-        NSLog(@"Writing to file (%@) : %@", self.currFile, data);
-        [self.fileSys seekToEndOfFile];
-        [self.fileSys writeData:[data dataUsingEncoding:NSASCIIStringEncoding]];
+    // NSLog(@"Writing to file (%@) : %@", self.file, data);
+    [self.fileSys seekToEndOfFile];
+    [self.fileSys writeData:[data dataUsingEncoding:NSASCIIStringEncoding]];
 }
 
 // Function to write a new measurement to the open file
 - (BOOL) addMeasurement:(double)val {
-    self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
+    self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.file];
     NSString* valStr = [NSString stringWithFormat:@"%.0f|", val];
     [self writeToFile:self.fileSys data:valStr];
     return TRUE;
@@ -58,237 +212,52 @@
     NSString* path = [docsDir stringByAppendingPathComponent:name];
     
     // Make a reference to new file for writing
-    self.currFile = path;
-    self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.currFile];
+    self.file = path;
+    self.fileSys = [NSFileHandle fileHandleForWritingAtPath:self.file];
     
     // Create meta data
     NSString* toWrite = [NSString stringWithFormat:@"%@|%f|", name, rate];
-        
+    
     // Create file manager for writing measurements
     NSFileManager* manager = [NSFileManager defaultManager];
-    [manager createFileAtPath:self.currFile contents: [toWrite dataUsingEncoding:NSASCIIStringEncoding] attributes:nil];
+    [manager createFileAtPath:self.file contents: [toWrite dataUsingEncoding:NSASCIIStringEncoding] attributes:nil];
     
-    // Write to the filest
+    // Write to the file
     [self writeToFile:self.fileSys data:toWrite];
-}
-
-#pragma mark - UI
-
-//=========================================//
-//======         UI Functions         =====//
-//=========================================//
-
-// Function to update the speed displayed on the app page
-- (void)lblUpdate:(double)velo {
-    NSString * numStr = [NSString stringWithFormat:@"%.0f", velo];
-    [self.lbl setText:numStr];
-}
-
-// Function to set up animations
--(void) setupAnim {
-    
-    // Setup the pulsing animation for the active label
-    self.anim = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    [self.anim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [self.anim setRepeatCount:HUGE_VALF];
-    [self.anim setFromValue:[NSNumber numberWithFloat:.25]];
-    [self.anim setToValue:[NSNumber numberWithFloat:1.0]];
-    [self.anim setAutoreverses:YES];
-    [self.anim setDuration:1.0];
-}
-
-// Function to change UI when user starts gathering speed
-- (void) runUISetup {
-    
-    // Enable and disable the correct buttons
-    [self.StopBtn setEnabled:YES];
-    [self.RunBtn setEnabled:NO];
-    
-    // Set the descriptive label to running
-    [self.activeLabel setText:@"Running..."];
-    
-    // Enable the animation
-    [[[self activeLabel] layer] addAnimation:self.anim forKey:@"pulse"];
-}
-
-// Function to change the UI upon user
-// indicating they are done recording their speed
-- (void) stopUISetup {
-    
-    // Enable and disable the correct buttons
-    [self.RunBtn setEnabled:YES];
-    [self.StopBtn setEnabled:NO];
-    
-    // Set the descriptive label to inactive
-    [self.activeLabel setText:@"Inactive..."];
-    
-    // Disable the animation
-    [[[self activeLabel] layer] removeAnimationForKey:@"pulse"];
-    [self.lbl setText:@"0"];
 }
 
 # pragma mark - Location
 
-//=========================================//
-//======      Location Functions      =====//
-//=========================================//
-
-// Function that is called at the rate of RATE
-// to get location and data and parse needed data from it
-
-
-- (void) tick {
-    
-    /*
-     
-    // Store the retrieved location in loc
-    self.loc = [self.cllManager location];
-    
-    // Retrieve speed from the stored location data
-    double velo = self.loc.speed;
-    
-    // modify it by the appropriate speed system
-    velo *= self.sharedData.speed_conv;
-    
-    // Update the label
-    [self lblUpdate:velo];
-    
-    // Add the measurment and check to see if the measurement has been added,
-    // if not print out an error text alerting user
-    if(![self addMeasurement:velo]){
-        [self lblUpdate:-1];
-        [self.activeLabel setText:@"SPEED NOT ADDED"];
-    }
-    
-     */
-    
-}
-
-// Function to stop retreiving location
-- (void) stopLocation {
-    
-    // Stop updating the location.  Will save battery.
-    [self.cllManager stopUpdatingLocation];
-}
-
-# pragma mark - Start/Stop
-
-//=========================================//
-//======     Start/Stop Functions     =====//
-//=========================================//
-
-// Function that intializes all necessary parts for gathering speed
-- (void) runInitializations {
-    
-    // Set up the Log
-    self.lblLog = [[Log alloc] init];
-    
-    // Initialize the CLLocationManager
-    self.cllManager = [[CLLocationManager alloc] init];
-    
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([self.cllManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.cllManager requestWhenInUseAuthorization];
-    }
-    
-    // Set the accuracy of CLLocationManager
-    [self.cllManager setDelegate:self];
-    [self.cllManager setPausesLocationUpdatesAutomatically:NO];
-    [self.cllManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
-    [self.cllManager setDistanceFilter:kCLDistanceFilterNone];
-    
-    // Begin updating
-    [self.cllManager startUpdatingLocation];
-}
-
-// Function that is called when the run button is pressed
-- (IBAction)onRun:(id)sender {
-    
-    // Intitalize the parts needed for log
-    [self runInitializations];
-    
-    // Change the UI for the run state
-    [self runUISetup];
-    
-    // Get the file ready for initiliazation
-    [self runFileSetup:self.RATE];
-    
-    // Start the timer for updating the label
-    self.lblTimer = [NSTimer scheduledTimerWithTimeInterval: self.sharedData.rate target:self selector: @selector(tick) userInfo:nil repeats:YES];
-}
-
-// Function that executed when the user presses the Stop button
-- (IBAction)onStop:(id)sender {
-    
-    // Set the UI to the stop state
-    [self stopUISetup];
-    
-    // Set the location to a stopped state
-    [self stopLocation];
-    
-    // Close up the file
-    [self stopFile];
-    
-    // End the label timer
-    [self.lblTimer invalidate];
-}
-
-#pragma mark - Overriden
-
-//=========================================//
-//======      Overriden Functions     =====//
-//=========================================//
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    [self.StopBtn setEnabled:NO];
-    [self.RunBtn setEnabled:YES];
-    [self setupAnim];
-    
-    if (!self.sharedData) {
-        self.sharedData = [[SharedData alloc] init];
-    }
-    
-    [self.unitLabel setText: [self.sharedData get_unit_type]];
-    
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"didFailWithErr or: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    CLLocation *currentLocation = newLocation;
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    self.location = locations.lastObject;
     
-    if (currentLocation != nil) {
-        
-        double velo = currentLocation.speed;
-        
-        // Modify it by the appropriate speed system
-        velo *= self.sharedData.speed_conv;
-        
-        // Update the label
-        [self lblUpdate:velo];
-        
-        // Add the measurment and check to see if the measurement has been added,
-        // if not print out an error text alerting user
-        if(![self addMeasurement:velo]){
-            [self lblUpdate:-1];
-            [self.activeLabel setText:@"SPEED NOT ADDED"];
-        }
+    double velocity = 0.0;
+    
+    if (self.location != nil) {
+        velocity = self.location.speed;
+        velocity *= self.sharedData.speed_conv;
     }
+    
+    NSString *string_velocity = [NSString stringWithFormat:@"%.0f", velocity];
+    [self.speedLabel setText: string_velocity];
+    
+    if(![self addMeasurement:velocity]){
+        velocity = -1;
+        string_velocity = [NSString stringWithFormat:@"%.0f", velocity];
+        [self.speedLabel setText: string_velocity];
+        [self.statusLabel setText:@"SPEED NOT ADDED"];
+    }
+}
+
+- (void) stopLocation {
+    [self.cllManager stopUpdatingLocation];
 }
 
 @end

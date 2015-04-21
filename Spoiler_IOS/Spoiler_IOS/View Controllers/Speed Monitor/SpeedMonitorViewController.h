@@ -2,52 +2,47 @@
 //  SpeedMonitorViewController.h
 //  Spoiler_IOS
 //
-//  Created by Tausif Ahmed on 9/16/14.
-//  Copyright (c) 2014 Spoiler. All rights reserved.
+//  Created by Tausif Ahmed on 4/16/15.
+//  Copyright (c) 2015 Tausif. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "Log.h"
 #import "SharedData.h"
+#import "Log.h"
 
-@interface SpeedMonitorViewController : UIViewController
-        <CLLocationManagerDelegate>
+#define BUTTON_WIDTH 100
+#define BUTTON_HEIGHT 50
+#define SPEED_HEIGHT 80
 
-// Action variables connected to app page
-@property (weak, nonatomic) IBOutlet UIButton *RunBtn;
-@property (weak, nonatomic) IBOutlet UIButton *StopBtn;
-@property (weak, nonatomic) IBOutlet UILabel *lbl;
-@property (weak, nonatomic) IBOutlet UILabel *activeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+@interface SpeedMonitorViewController : UIViewController <CLLocationManagerDelegate>
 
-// Timer for updating the label
-@property NSTimer * lblTimer;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
-// Log that is being measured
-@property Log*  lblLog;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
 
-// Pulsing animation that occurs during app runtime
-@property CABasicAnimation * anim;
+@property Log *log;
 
-// Object to retrieve location and to return current driving speed
-@property (strong) CLLocation* loc;
+@property UILabel *speedLabel;
 
-// Object to handle the CLLocation object so that it behaves as desired
-@property (nonatomic, strong) CLLocationManager* cllManager;
+@property UILabel *statusLabel;
 
-// Variables to handle loging and storing information into log and then
-// insert that into device's local memory
-@property NSFileHandle* fileSys;
-@property NSString* currFile;
+@property UILabel *unitLabel;
 
-// The rate at which measurements from CLLocation is gathered
+@property CABasicAnimation *animation;
+
+@property NSTimer *timer;
+
+@property (strong) CLLocation *location;
+
+@property (strong, nonatomic) CLLocationManager *cllManager;
+
+@property NSFileHandle *fileSys;
+
+@property NSString *file;
+
 @property NSTimeInterval RATE;
 
-// DEBUGGING purposes.  Total number of measurements taken
-@property int counter;
-
-@property double SPEEDSYSTEM;
-
-@property (strong, nonatomic) SharedData* sharedData;
+@property (strong, nonatomic) SharedData *sharedData;
 
 @end
+
