@@ -11,10 +11,15 @@
 
 @interface LogTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) UINavigationBar *navbar;
+
 @property (strong, nonatomic) UITableView *log_table;
 
 @property NSArray *logData;
 
+@property NSString *selected_file;
+
 @property (strong, nonatomic) SharedData *sharedData;
+
 
 @end

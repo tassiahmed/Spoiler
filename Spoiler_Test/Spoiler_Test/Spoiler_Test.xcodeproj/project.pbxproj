@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43090D8A1AE57CF6004B8C3C /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43090D891AE57CF6004B8C3C /* LogViewController.m */; };
 		43AFBFB41AE553A700616A6A /* LogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AFBFB31AE553A700616A6A /* LogTableViewController.m */; };
 		43C3D66B1AE0377D002109B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C3D66A1AE0377D002109B0 /* main.m */; };
 		43C3D66E1AE0377D002109B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C3D66D1AE0377D002109B0 /* AppDelegate.m */; };
@@ -30,12 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43AFBFB31AE553A700616A6A /* LogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewController.m; sourceTree = "<group>"; };
-		43AFBFB51AE553B300616A6A /* LogTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogTableViewController.h; sourceTree = "<group>"; };
+		43090D891AE57CF6004B8C3C /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		43090D8B1AE57CFF004B8C3C /* LogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		43AFBFB31AE553A700616A6A /* LogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewController.m; sourceTree = "<group>"; usesTabs = 1; };
+		43AFBFB51AE553B300616A6A /* LogTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogTableViewController.h; sourceTree = "<group>"; usesTabs = 1; };
 		43C3D6651AE0377D002109B0 /* Spoiler_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C3D6691AE0377D002109B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C3D66A1AE0377D002109B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43C3D66C1AE0377D002109B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		43C3D66C1AE0377D002109B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; usesTabs = 1; };
 		43C3D66D1AE0377D002109B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		43C3D6731AE0377D002109B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43C3D6751AE0377D002109B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -43,10 +46,10 @@
 		43C3D67E1AE0377D002109B0 /* Spoiler_TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Spoiler_TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C3D6831AE0377D002109B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C3D6841AE0377D002109B0 /* Spoiler_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spoiler_TestTests.m; sourceTree = "<group>"; };
-		43C3D6921AE03827002109B0 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeedMonitorViewController.h; sourceTree = "<group>"; };
+		43C3D6921AE03827002109B0 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeedMonitorViewController.h; sourceTree = "<group>"; usesTabs = 1; };
 		43C3D6941AE03880002109B0 /* SharedData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
 		43C3D6951AE038AD002109B0 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
-		43C3D6971AE03900002109B0 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedMonitorViewController.m; sourceTree = "<group>"; };
+		43C3D6971AE03900002109B0 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedMonitorViewController.m; sourceTree = "<group>"; usesTabs = 1; };
 		43C3D69B1AE039AD002109B0 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 		43C3D69D1AE039C8002109B0 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43090D881AE57CC4004B8C3C /* Log View */ = {
+			isa = PBXGroup;
+			children = (
+				43090D8B1AE57CFF004B8C3C /* LogViewController.h */,
+				43090D891AE57CF6004B8C3C /* LogViewController.m */,
+			);
+			name = "Log View";
+			sourceTree = "<group>";
+		};
 		43AFBFB21AE5537100616A6A /* Log Table */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 			children = (
 				43C3D6911AE0380D002109B0 /* Speed Monitor */,
 				43AFBFB21AE5537100616A6A /* Log Table */,
+				43090D881AE57CC4004B8C3C /* Log View */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43090D8A1AE57CF6004B8C3C /* LogViewController.m in Sources */,
 				43C3D69C1AE039AD002109B0 /* Log.m in Sources */,
 				43AFBFB41AE553A700616A6A /* LogTableViewController.m in Sources */,
 				43C3D6961AE038AD002109B0 /* SharedData.m in Sources */,
