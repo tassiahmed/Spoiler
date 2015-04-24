@@ -23,7 +23,8 @@
     [self.file_name_label setCenter: CGPointMake(self.view.center.x, self.view.center.y - 280)];
     [self.view addSubview: self.file_name_label];
     
-    
+    //[self.navigationController.navigationBar.topItem setTitle: self.file_name];
+
 }
 
 - (void) didReceiveMemoryWarning {

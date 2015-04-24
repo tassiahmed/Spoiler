@@ -19,7 +19,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
+	
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handle_data) name:@"reload_data" object:nil];
 	
 	[self.navigationController.navigationBar.topItem setTitle: @"Logs"];
@@ -29,15 +29,15 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
     self.logData = [[self.logData reverseObjectEnumerator] allObjects];
     
-    self.log_table = [[UITableView alloc] init];
-    [self.log_table setFrame: CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
-    [self.log_table setDataSource: self];
-    [self.log_table setDelegate: self];
-    [self.log_table setBackgroundColor: [UIColor colorWithWhite: 235/255.0 alpha:1]];
-    [self.log_table setAutoresizingMask: UIViewAutoresizingFlexibleHeight |
+    self.tableView = [[UITableView alloc] init];
+    [self.tableView setFrame: CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
+    [self.tableView setDataSource: self];
+    [self.tableView setDelegate: self];
+    [self.tableView setBackgroundColor: [UIColor colorWithWhite: 235/255.0 alpha:1]];
+    [self.tableView setAutoresizingMask: UIViewAutoresizingFlexibleHeight |
                                         UIViewAutoresizingFlexibleWidth];
-	[self.log_table reloadData];
-    [self.view addSubview: self.log_table];
+	[self.tableView reloadData];
+	//[self.view addSubview: self.tableView];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -50,7 +50,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
     self.logData = [[self.logData reverseObjectEnumerator] allObjects];
     
-    [self.log_table reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table Data View
@@ -101,13 +101,13 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     [messageAlert show];*/
     NSLog(@"%@", [self.logData objectAtIndex: indexPath.row]);
     self.selected_file = [self.logData objectAtIndex: indexPath.row];
-    
+	[self performSegueWithIdentifier: SEGUE_LOGVIEW sender:self];
+	
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString: SEGUE_LOGVIEW]) {
         LogViewController *log = [segue destinationViewController];
-        [log setFileName: [self parseFileName:self.selected_file]];
     }
 }
 

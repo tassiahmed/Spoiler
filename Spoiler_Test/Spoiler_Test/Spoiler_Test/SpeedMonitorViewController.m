@@ -83,7 +83,7 @@
 
     self.stopButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.stopButton setTitle: @"Stop" forState: UIControlStateNormal];
-    [self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH,
+    [self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH + 20,
                                         self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height,
                                           BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
     [self.stopButton setEnabled: NO];
@@ -118,8 +118,7 @@
     [self.unitLabel setFont: [self.speedLabel.font fontWithSize: 40]];
     [self.unitLabel setTextColor: [UIColor whiteColor]];
     [self.view addSubview: self.unitLabel];
-    
-    
+	
     self.log = [[Log alloc] init];
     
     self.cllManager = [[CLLocationManager alloc] init];
