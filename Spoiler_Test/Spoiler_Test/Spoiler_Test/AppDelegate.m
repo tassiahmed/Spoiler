@@ -38,9 +38,9 @@
     
     [self.tabBarController setViewControllers: controllers];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.tabBarController;
-    [self.window makeKeyAndVisible];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window.rootViewController = self.tabBarController;
+    //[self.window makeKeyAndVisible];
     
     return YES;
 }
