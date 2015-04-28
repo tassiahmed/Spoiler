@@ -99,7 +99,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
     // Display Alert Message
     [messageAlert show];*/
-    NSLog(@"%@", [self.logData objectAtIndex: indexPath.row]);
+    //NSLog(@"%@", [self.logData objectAtIndex: indexPath.row]);
     self.selected_file = [self.logData objectAtIndex: indexPath.row];
 	[self performSegueWithIdentifier: SEGUE_LOGVIEW sender:self];
 	
@@ -108,6 +108,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString: SEGUE_LOGVIEW]) {
         LogViewController *log = [segue destinationViewController];
+		[log setFileName:self.selected_file];
     }
 }
 

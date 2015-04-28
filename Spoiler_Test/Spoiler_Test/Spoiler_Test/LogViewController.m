@@ -18,11 +18,8 @@
     [super viewDidLoad];
     
     self.file_name = [[NSString alloc] init];
-    self.file_name_label = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 100, 40)];
     
-    [self.file_name_label setCenter: CGPointMake(self.view.center.x, self.view.center.y - 280)];
-    [self.view addSubview: self.file_name_label];
-    
+    //NSLog(self.navigationController.navigationBar.topItem.title);
     //[self.navigationController.navigationBar.topItem setTitle: self.file_name];
 
 }
@@ -33,7 +30,6 @@
 
 - (void) setFileName: (NSString* ) name {
     self.file_name = name;
-    [self.file_name_label setText:self.file_name];
 }
 
 @end
