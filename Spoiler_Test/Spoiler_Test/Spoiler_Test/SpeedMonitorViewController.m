@@ -45,26 +45,34 @@
     [self.animation setDuration:1.0];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 -(void) setUpSpeedMonitor {
     
-    [self.view setBackgroundColor: [UIColor whiteColor]];
+    [self.view setBackgroundColor: [UIColor blackColor]];
     
-    UILabel *name = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH + 100, SPEED_HEIGHT)];
+    UILabel *name = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH + 125, SPEED_HEIGHT)];
     [name setText: @"Speed Monitor"];
     [name setCenter: CGPointMake(self.view.center.x, self.view.center.y - 250)];
     [name setFont: [name.font fontWithSize: 30]];
+    [name setTextColor: [UIColor whiteColor]];
+	[name.layer setCornerRadius: 10];
+	[name.layer setBorderWidth: 5];
+	[name.layer setBorderColor: [UIColor whiteColor].CGColor];
+	[name setTextAlignment: NSTextAlignmentCenter];
     [self.view addSubview: name];
-
-    
     
     self.startButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.startButton setTitle: @"Start" forState: UIControlStateNormal];
-    [self.startButton setFrame: CGRectMake(0.0, self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [self.startButton setFrame: CGRectMake(0.0, self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height, BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
     [self.startButton setEnabled: YES];
     [self.startButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
     [self.startButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
     [self.startButton setUserInteractionEnabled: YES];
-    [self.startButton.titleLabel setFont: [self.startButton.titleLabel.font fontWithSize: 33]];
+    [self.startButton.titleLabel setFont: [self.startButton.titleLabel.font fontWithSize: 25]];
     [self.startButton addTarget: self action: @selector(runButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.startButton.layer setCornerRadius: 10];
     [self.startButton.layer setBorderWidth: 5];
@@ -75,14 +83,14 @@
 
     self.stopButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [self.stopButton setTitle: @"Stop" forState: UIControlStateNormal];
-    [self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH,
+    [self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH + 20,
                                         self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height,
-                                          BUTTON_WIDTH, BUTTON_HEIGHT)];
+                                          BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
     [self.stopButton setEnabled: NO];
     [self.stopButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
     [self.stopButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
     [self.stopButton setUserInteractionEnabled: YES];
-    [self.stopButton.titleLabel setFont: [self.startButton.titleLabel.font fontWithSize: 33]];
+    [self.stopButton.titleLabel setFont: [self.startButton.titleLabel.font fontWithSize: 25]];
     [self.stopButton addTarget: self action: @selector(stopButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.stopButton.layer setCornerRadius: 10];
     [self.stopButton.layer setBorderWidth: 5];
@@ -94,6 +102,7 @@
     [self.statusLabel setCenter: CGPointMake(self.view.center.x,
                                              (self.view.frame.size.height - (BUTTON_HEIGHT/2) - self.tabBarController.tabBar.frame.size.height))];
     [self.statusLabel setFont: [self.startButton.titleLabel.font fontWithSize: 20]];
+    [self.statusLabel setTextColor: [UIColor whiteColor]];
     [self.view addSubview: self.statusLabel];
     
     self.speedLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, SPEED_HEIGHT)];
@@ -107,9 +116,9 @@
     [self.unitLabel setText: [self.sharedData get_unit_type]];
     [self.unitLabel setCenter: CGPointMake(self.view.center.x + 50, self.view.center.y)];
     [self.unitLabel setFont: [self.speedLabel.font fontWithSize: 40]];
+    [self.unitLabel setTextColor: [UIColor whiteColor]];
     [self.view addSubview: self.unitLabel];
-    
-    
+	
     self.log = [[Log alloc] init];
     
     self.cllManager = [[CLLocationManager alloc] init];
@@ -153,6 +162,8 @@
     [self.statusLabel setText: @"Inactive..."];
     [[[self statusLabel] layer] removeAnimationForKey:@"pulse"];
     [self.speedLabel setText: @"0"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
     
     [self stopLocation];
     [self stopFile];

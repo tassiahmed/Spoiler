@@ -32,11 +32,15 @@
     UITabBarItem *logItem = [[UITabBarItem alloc] initWithTitle: @"Logs" image:logImage tag:0];
     [logs setTabBarItem: logItem];
     
-    NSArray *controllers = [NSArray arrayWithObjects:speed_monitor, logs, nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController: logs];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:speed_monitor, self.navController, nil];
     
     [self.tabBarController setViewControllers: controllers];
     
-    _window.rootViewController = self.tabBarController;
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window.rootViewController = self.tabBarController;
+    //[self.window makeKeyAndVisible];
     
     return YES;
 }
