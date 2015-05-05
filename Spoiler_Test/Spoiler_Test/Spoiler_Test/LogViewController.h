@@ -10,11 +10,8 @@
 
 @interface LogViewController : UIViewController /*<UITableViewDataSource, UITableViewDelegate>*/
 
-@property (strong, nonatomic) UILabel *file_name_label;
-
 @property NSString *file_name;
 
 - (void) setFileName: (NSString* ) name;
-
 
 @end
