@@ -208,7 +208,6 @@
     NSString* docsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSString* name = [NSString stringWithFormat:@"%@.log",dateStr];
     
-    
     NSString* path = [docsDir stringByAppendingPathComponent:name];
     
     // Make a reference to new file for writing

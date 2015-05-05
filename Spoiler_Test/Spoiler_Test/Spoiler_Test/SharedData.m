@@ -14,6 +14,11 @@
 
 #define SETTINGS_FILE_STR "Library/settings.ini"
 
+#define DEFAULT_NUM_SYS 0
+#define DEFAULT_RATE 5
+#define DEFAULT_PARENT 0
+#define DEFAULT_PHONE 00000000000
+
 @implementation SharedData
 
 //saves the save file
@@ -39,8 +44,17 @@
     
     NSFileManager* manager = [NSFileManager defaultManager];
     
+    [manager createFileAtPath: @SETTINGS_FILE_STR contents: nil attributes: nil];
     
+    NSFileHandle* output = [NSFileHandle fileHandleForWritingAtPath:@SETTINGS_FILE_STR];
     
+    //[output writeData:]];
+    NSString* contents_to_write = [NSString stringWithFormat:@"%d\n%d\n%d\n00000000000", DEFAULT_NUM_SYS, DEFAULT_RATE, DEFAULT_PARENT];
+    
+    [output writeData: [contents_to_write dataUsingEncoding:NSASCIIStringEncoding]];
+    
+    [output closeFile];
+
 }
 
 -(SharedData*) init{
