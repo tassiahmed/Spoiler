@@ -26,7 +26,7 @@
     
     NSFileManager* manager = [NSFileManager defaultManager];
     
-    
+    //needs to write all of the settings information to the settings file
 }
 
 //checks if the save file exists
@@ -42,11 +42,15 @@
     
     NSLog(@"Creating the save file");
     
+    //NOT THE CORRECT FILE PATH --- NEEDS TO BE FIXED
+    
     NSFileManager* manager = [NSFileManager defaultManager];
     
     [manager createFileAtPath: @SETTINGS_FILE_STR contents: nil attributes: nil];
     
     NSFileHandle* output = [NSFileHandle fileHandleForWritingAtPath:@SETTINGS_FILE_STR];
+    
+    //NSLog(@"file path: %s\n", @SETTINGS_FILE_STR);
     
     //[output writeData:]];
     NSString* contents_to_write = [NSString stringWithFormat:@"%d\n%d\n%d\n00000000000", DEFAULT_NUM_SYS, DEFAULT_RATE, DEFAULT_PARENT];
