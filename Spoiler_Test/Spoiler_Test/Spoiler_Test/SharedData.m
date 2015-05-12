@@ -27,6 +27,13 @@
     NSFileManager* manager = [NSFileManager defaultManager];
     
     //needs to write all of the settings information to the settings file
+    
+    //potentially needs to be called after every change.  Would be slower but allows for a cleaner interface
+    
+    
+    
+    
+    
 }
 
 //checks if the save file exists
@@ -44,7 +51,11 @@
     
     //NOT THE CORRECT FILE PATH --- NEEDS TO BE FIXED
     
+    //NULL address for the file.  Need to fix that.  Once thats fixed this all should work well enough
+    
     NSFileManager* manager = [NSFileManager defaultManager];
+    
+    //trying to set it up so that the settings file is inaccessible to the user in any way
     
     [manager createFileAtPath: @SETTINGS_FILE_STR contents: nil attributes: nil];
     
