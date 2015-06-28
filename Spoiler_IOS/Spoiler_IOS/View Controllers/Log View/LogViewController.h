@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SharedData.h"
+
 
 @interface LogViewController : UIViewController /*<UITableViewDataSource, UITableViewDelegate>*/
 
 @property NSString *file_name;
 
-- (void) setFileName: (NSString* ) name;
+@property UILabel *file_data;
+
+@property (strong, nonatomic) SharedData *sharedData;
+
+-(void) setUpLogView: (NSString*) file;
 
 @end
