@@ -38,9 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43296DAD1B3F9429001326B7 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedData.h; path = "Objects/Shared Data/SharedData.h"; sourceTree = "<group>"; };
 		4375DA911AF02C23006641EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Spoiler_IOS/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43C3D69E1AE03CF4002109B0 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeedMonitorViewController.m; path = "View Controllers/Speed Monitor/SpeedMonitorViewController.m"; sourceTree = "<group>"; };
-		43CA76351ACB1BAB009F52B0 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedData.h; path = "Objects/Shared Data/SharedData.h"; sourceTree = "<group>"; };
 		43CA76361ACB1BAB009F52B0 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedData.m; path = "Objects/Shared Data/SharedData.m"; sourceTree = "<group>"; };
 		43CA76381ACB1BBD009F52B0 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Objects/Log/Log.h; sourceTree = "<group>"; };
 		43CA76391ACB1BBD009F52B0 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Log.m; path = Objects/Log/Log.m; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		43CA76341ACB1977009F52B0 /* Shared Data */ = {
 			isa = PBXGroup;
 			children = (
-				43CA76351ACB1BAB009F52B0 /* SharedData.h */,
+				43296DAD1B3F9429001326B7 /* SharedData.h */,
 				43CA76361ACB1BAB009F52B0 /* SharedData.m */,
 			);
 			name = "Shared Data";
