@@ -69,8 +69,6 @@
 	self.log = [[Log alloc] init];
 	
 	[self setUpCLLManager];
-
-    
 }
 
 -(void) setUpNameLabel {
