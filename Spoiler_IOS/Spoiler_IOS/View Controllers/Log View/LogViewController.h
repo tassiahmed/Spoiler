@@ -14,7 +14,17 @@
 
 @property NSString *file_name;
 
-@property UILabel *file_data;
+@property NSMutableArray *file_data;
+
+@property UILabel *file_label;
+
+@property NSString *file_contents;
+
+@property NSString *speed_measurement;
+
+@property NSString *data;
+
+@property float rate;
 
 @property (strong, nonatomic) SharedData *sharedData;
 

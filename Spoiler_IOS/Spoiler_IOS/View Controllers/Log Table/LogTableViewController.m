@@ -137,6 +137,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     
     // Set the cell's text to the log name
     cell.textLabel.text = format;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
