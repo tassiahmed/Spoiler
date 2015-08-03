@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Spoiler_IOS.xcodeproj">
+      location = "self:/Users/tassiahmed/Documents/Programming/RCOS/Spoiler/Spoiler_IOS/Spoiler.xcodeproj">
    </FileRef>
 </Workspace>

@@ -49,18 +49,18 @@
 		43CA763E1ACB1BDC009F52B0 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeedMonitorViewController.h; path = "View Controllers/Speed Monitor/SpeedMonitorViewController.h"; sourceTree = "<group>"; };
 		43CA76411ACB1BE7009F52B0 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogViewController.h; path = "View Controllers/Log View/LogViewController.h"; sourceTree = "<group>"; };
 		43CA76421ACB1BE7009F52B0 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogViewController.m; path = "View Controllers/Log View/LogViewController.m"; sourceTree = "<group>"; };
-		43CB45A819C8D0EE0054FD8A /* Spoiler_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CB45A819C8D0EE0054FD8A /* Spoiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CB45AB19C8D0EE0054FD8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43CB45AD19C8D0EE0054FD8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		43CB45AF19C8D0EE0054FD8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		43CB45B319C8D0EE0054FD8A /* Spoiler_IOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Spoiler_IOS-Info.plist"; sourceTree = "<group>"; };
+		43CB45B319C8D0EE0054FD8A /* Spoiler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Spoiler-Info.plist"; sourceTree = "<group>"; };
 		43CB45B519C8D0EE0054FD8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43CB45B719C8D0EE0054FD8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43CB45B919C8D0EE0054FD8A /* Spoiler_IOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spoiler_IOS-Prefix.pch"; sourceTree = "<group>"; };
+		43CB45B919C8D0EE0054FD8A /* Spoiler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spoiler-Prefix.pch"; sourceTree = "<group>"; };
 		43CB45C619C8D0EE0054FD8A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		43CB45CC19C8D0EE0054FD8A /* Spoiler_IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Spoiler_IOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CB45CC19C8D0EE0054FD8A /* SpoilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CB45CD19C8D0EE0054FD8A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		43CB45D519C8D0EE0054FD8A /* Spoiler_IOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Spoiler_IOSTests-Info.plist"; sourceTree = "<group>"; };
+		43CB45D519C8D0EE0054FD8A /* SpoilerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpoilerTests-Info.plist"; sourceTree = "<group>"; };
 		43CB45D719C8D0EE0054FD8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43CB45D919C8D0EE0054FD8A /* Spoiler_IOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spoiler_IOSTests.m; sourceTree = "<group>"; };
 		43D4C8191AF025AF0013DBC9 /* LogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogTableViewController.h; path = "View Controllers/Log Table/LogTableViewController.h"; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		43CB45A919C8D0EE0054FD8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43CB45A819C8D0EE0054FD8A /* Spoiler_IOS.app */,
-				43CB45CC19C8D0EE0054FD8A /* Spoiler_IOSTests.xctest */,
+				43CB45A819C8D0EE0054FD8A /* Spoiler.app */,
+				43CB45CC19C8D0EE0054FD8A /* SpoilerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,10 +152,10 @@
 		43CB45B219C8D0EE0054FD8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				43CB45B319C8D0EE0054FD8A /* Spoiler_IOS-Info.plist */,
+				43CB45B319C8D0EE0054FD8A /* Spoiler-Info.plist */,
 				43CB45B419C8D0EE0054FD8A /* InfoPlist.strings */,
 				43CB45B719C8D0EE0054FD8A /* main.m */,
-				43CB45B919C8D0EE0054FD8A /* Spoiler_IOS-Prefix.pch */,
+				43CB45B919C8D0EE0054FD8A /* Spoiler-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 		43CB45D419C8D0EE0054FD8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				43CB45D519C8D0EE0054FD8A /* Spoiler_IOSTests-Info.plist */,
+				43CB45D519C8D0EE0054FD8A /* SpoilerTests-Info.plist */,
 				43CB45D619C8D0EE0054FD8A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -247,9 +247,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		43CB45A719C8D0EE0054FD8A /* Spoiler_IOS */ = {
+		43CB45A719C8D0EE0054FD8A /* Spoiler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43CB45DD19C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler_IOS" */;
+			buildConfigurationList = 43CB45DD19C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler" */;
 			buildPhases = (
 				43CB45A419C8D0EE0054FD8A /* Sources */,
 				43CB45A519C8D0EE0054FD8A /* Frameworks */,
@@ -259,14 +259,14 @@
 			);
 			dependencies = (
 			);
-			name = Spoiler_IOS;
+			name = Spoiler;
 			productName = Spoiler_IOS;
-			productReference = 43CB45A819C8D0EE0054FD8A /* Spoiler_IOS.app */;
+			productReference = 43CB45A819C8D0EE0054FD8A /* Spoiler.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43CB45CB19C8D0EE0054FD8A /* Spoiler_IOSTests */ = {
+		43CB45CB19C8D0EE0054FD8A /* SpoilerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43CB45E019C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler_IOSTests" */;
+			buildConfigurationList = 43CB45E019C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "SpoilerTests" */;
 			buildPhases = (
 				43CB45C819C8D0EE0054FD8A /* Sources */,
 				43CB45C919C8D0EE0054FD8A /* Frameworks */,
@@ -277,9 +277,9 @@
 			dependencies = (
 				43CB45D219C8D0EE0054FD8A /* PBXTargetDependency */,
 			);
-			name = Spoiler_IOSTests;
+			name = SpoilerTests;
 			productName = Spoiler_IOSTests;
-			productReference = 43CB45CC19C8D0EE0054FD8A /* Spoiler_IOSTests.xctest */;
+			productReference = 43CB45CC19C8D0EE0054FD8A /* SpoilerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -296,7 +296,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 43CB45A319C8D0EE0054FD8A /* Build configuration list for PBXProject "Spoiler_IOS" */;
+			buildConfigurationList = 43CB45A319C8D0EE0054FD8A /* Build configuration list for PBXProject "Spoiler" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,8 +322,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43CB45A719C8D0EE0054FD8A /* Spoiler_IOS */,
-				43CB45CB19C8D0EE0054FD8A /* Spoiler_IOSTests */,
+				43CB45A719C8D0EE0054FD8A /* Spoiler */,
+				43CB45CB19C8D0EE0054FD8A /* SpoilerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -377,7 +377,7 @@
 /* Begin PBXTargetDependency section */
 		43CB45D219C8D0EE0054FD8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43CB45A719C8D0EE0054FD8A /* Spoiler_IOS */;
+			target = 43CB45A719C8D0EE0054FD8A /* Spoiler */;
 			targetProxy = 43CB45D119C8D0EE0054FD8A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -487,9 +487,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Spoiler_IOS/Spoiler_IOS-Prefix.pch";
-				INFOPLIST_FILE = "Spoiler_IOS/Spoiler_IOS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Spoiler_IOS/Spoiler-Prefix.pch";
+				INFOPLIST_FILE = "Spoiler_IOS/Spoiler-Info.plist";
+				PRODUCT_NAME = Spoiler;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -500,9 +500,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Spoiler_IOS/Spoiler_IOS-Prefix.pch";
-				INFOPLIST_FILE = "Spoiler_IOS/Spoiler_IOS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Spoiler_IOS/Spoiler-Prefix.pch";
+				INFOPLIST_FILE = "Spoiler_IOS/Spoiler-Info.plist";
+				PRODUCT_NAME = Spoiler;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -522,8 +522,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Spoiler_IOSTests/Spoiler_IOSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Spoiler_IOSTests/SpoilerTests-Info.plist";
+				PRODUCT_NAME = SpoilerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -540,8 +540,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Spoiler_IOS/Spoiler_IOS-Prefix.pch";
-				INFOPLIST_FILE = "Spoiler_IOSTests/Spoiler_IOSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Spoiler_IOSTests/SpoilerTests-Info.plist";
+				PRODUCT_NAME = SpoilerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -550,7 +550,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		43CB45A319C8D0EE0054FD8A /* Build configuration list for PBXProject "Spoiler_IOS" */ = {
+		43CB45A319C8D0EE0054FD8A /* Build configuration list for PBXProject "Spoiler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43CB45DB19C8D0EE0054FD8A /* Debug */,
@@ -559,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43CB45DD19C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler_IOS" */ = {
+		43CB45DD19C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43CB45DE19C8D0EE0054FD8A /* Debug */,
@@ -568,7 +568,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43CB45E019C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "Spoiler_IOSTests" */ = {
+		43CB45E019C8D0EE0054FD8A /* Build configuration list for PBXNativeTarget "SpoilerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43CB45E119C8D0EE0054FD8A /* Debug */,
