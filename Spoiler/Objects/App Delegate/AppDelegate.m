@@ -2,21 +2,38 @@
 //  AppDelegate.m
 //  Spoiler
 //
-//  Created by Tausif Ahmed on 8/2/15.
-//  Copyright (c) 2015 Spoiler. All rights reserved.
+//  Created by Tausif Ahmed on 9/16/14.
+//  Copyright (c) 2014 Spoiler. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
-
-@end
+#import "SpeedMonitorViewController.h"
+#import "LogViewController.h"
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+	/*
+	 self.tabBarController = [[UITabBarController alloc] init];
+	 
+	 SpeedMonitorViewController *speed_monitor = [[SpeedMonitorViewController alloc] init];
+	 UIImage *speedImage = [UIImage imageNamed: @"first.png"];
+	 UITabBarItem *speedItem = [[UITabBarItem alloc] initWithTitle: @"Speed" image:speedImage tag:0];
+	 [speed_monitor setTabBarItem: speedItem];
+	 
+	 LogViewController *logs = [[LogViewController alloc] init];
+	 UIImage *logImage = [UIImage imageNamed: @"second.png"];
+	 UITabBarItem *logItem = [[UITabBarItem alloc] initWithTitle: @"Logs" image:logImage tag:0];
+	 [logs setTabBarItem: logItem];
+	 
+	 NSArray *controllers = [NSArray arrayWithObjects:speed_monitor, logs, nil];
+	 
+	 [self.tabBarController setViewControllers: controllers];
+	 
+	 self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	 self.window.rootViewController = self.tabBarController;
+	 */
 	return YES;
 }
 

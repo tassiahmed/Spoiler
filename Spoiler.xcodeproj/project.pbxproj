@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		43A39D311B6F254F00082091 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A39D301B6F254F00082091 /* main.m */; };
-		43A39D341B6F254F00082091 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A39D331B6F254F00082091 /* AppDelegate.m */; };
 		43A39D3D1B6F254F00082091 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A39D3B1B6F254F00082091 /* Main.storyboard */; };
 		43A39D3F1B6F254F00082091 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A39D3E1B6F254F00082091 /* Images.xcassets */; };
 		43A39D421B6F254F00082091 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A39D401B6F254F00082091 /* LaunchScreen.xib */; };
 		43A39D4E1B6F254F00082091 /* SpoilerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A39D4D1B6F254F00082091 /* SpoilerTests.m */; };
+		43A39D601B6F2B4C00082091 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A39D5F1B6F2B4C00082091 /* Foundation.framework */; };
+		43A39D621B6F2B5200082091 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A39D611B6F2B5200082091 /* CoreGraphics.framework */; };
+		43A39D641B6F2B6A00082091 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A39D631B6F2B6A00082091 /* UIKit.framework */; };
+		43FDC43F1B745F60009DB6E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDC43E1B745F60009DB6E9 /* AppDelegate.m */; };
+		43FDC4421B745FCF009DB6E9 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDC4411B745FCF009DB6E9 /* SharedData.m */; };
+		43FDC4451B745FE4009DB6E9 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDC4441B745FE4009DB6E9 /* Log.m */; };
+		43FDC4481B745FF8009DB6E9 /* SpeedMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDC4471B745FF8009DB6E9 /* SpeedMonitorViewController.m */; };
+		43FDC44B1B746007009DB6E9 /* LogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDC44A1B746007009DB6E9 /* LogTableViewController.m */; };
+		43FDC44E1B746018009DB6E9 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDC44D1B746018009DB6E9 /* LogViewController.m */; };
 		F51154A2768B3A57EA77774E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 505E726154005304D2FA63A1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,14 +38,27 @@
 		43A39D2B1B6F254F00082091 /* Spoiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A39D2F1B6F254F00082091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43A39D301B6F254F00082091 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43A39D321B6F254F00082091 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		43A39D331B6F254F00082091 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		43A39D3C1B6F254F00082091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43A39D3E1B6F254F00082091 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		43A39D411B6F254F00082091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		43A39D471B6F254F00082091 /* SpoilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A39D4C1B6F254F00082091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43A39D4D1B6F254F00082091 /* SpoilerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpoilerTests.m; sourceTree = "<group>"; };
+		43A39D5F1B6F2B4C00082091 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		43A39D611B6F2B5200082091 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		43A39D631B6F2B6A00082091 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		43FDC43D1B745F60009DB6E9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Objects/App Delegate/AppDelegate.h"; sourceTree = "<group>"; };
+		43FDC43E1B745F60009DB6E9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Objects/App Delegate/AppDelegate.m"; sourceTree = "<group>"; };
+		43FDC4401B745FCF009DB6E9 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedData.h; path = "Objects/Shared Data/SharedData.h"; sourceTree = "<group>"; };
+		43FDC4411B745FCF009DB6E9 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedData.m; path = "Objects/Shared Data/SharedData.m"; sourceTree = "<group>"; };
+		43FDC4431B745FE4009DB6E9 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Objects/Log/Log.h; sourceTree = "<group>"; };
+		43FDC4441B745FE4009DB6E9 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Log.m; path = Objects/Log/Log.m; sourceTree = "<group>"; };
+		43FDC4461B745FF8009DB6E9 /* SpeedMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeedMonitorViewController.h; path = "View Controllers/Speed Controller/SpeedMonitorViewController.h"; sourceTree = "<group>"; };
+		43FDC4471B745FF8009DB6E9 /* SpeedMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeedMonitorViewController.m; path = "View Controllers/Speed Controller/SpeedMonitorViewController.m"; sourceTree = "<group>"; };
+		43FDC4491B746007009DB6E9 /* LogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogTableViewController.h; path = "View Controllers/Log Table/LogTableViewController.h"; sourceTree = "<group>"; };
+		43FDC44A1B746007009DB6E9 /* LogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogTableViewController.m; path = "View Controllers/Log Table/LogTableViewController.m"; sourceTree = "<group>"; };
+		43FDC44C1B746018009DB6E9 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogViewController.h; path = "View Controllers/Log View/LogViewController.h"; sourceTree = "<group>"; };
+		43FDC44D1B746018009DB6E9 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogViewController.m; path = "View Controllers/Log View/LogViewController.m"; sourceTree = "<group>"; };
 		505E726154005304D2FA63A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D809F36312E16835805B782 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD082C8024C5EEC101FD8EF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A39D641B6F2B6A00082091 /* UIKit.framework in Frameworks */,
+				43A39D621B6F2B5200082091 /* CoreGraphics.framework in Frameworks */,
+				43A39D601B6F2B4C00082091 /* Foundation.framework in Frameworks */,
 				F51154A2768B3A57EA77774E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +98,9 @@
 		01D019DEC9701A233BE878EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43A39D631B6F2B6A00082091 /* UIKit.framework */,
+				43A39D611B6F2B5200082091 /* CoreGraphics.framework */,
+				43A39D5F1B6F2B4C00082091 /* Foundation.framework */,
 				505E726154005304D2FA63A1 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -102,8 +129,8 @@
 		43A39D2D1B6F254F00082091 /* Spoiler */ = {
 			isa = PBXGroup;
 			children = (
-				43A39D321B6F254F00082091 /* AppDelegate.h */,
-				43A39D331B6F254F00082091 /* AppDelegate.m */,
+				43A39D571B6F2A3D00082091 /* Objects */,
+				43A39D5B1B6F2A8900082091 /* View Controllers */,
 				43A39D3B1B6F254F00082091 /* Main.storyboard */,
 				43A39D3E1B6F254F00082091 /* Images.xcassets */,
 				43A39D401B6F254F00082091 /* LaunchScreen.xib */,
@@ -136,6 +163,80 @@
 				43A39D4C1B6F254F00082091 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43A39D571B6F2A3D00082091 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				43A39D591B6F2A6B00082091 /* Shared Data */,
+				43A39D5A1B6F2A7500082091 /* Log */,
+				43A39D581B6F2A4400082091 /* App Delegate */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		43A39D581B6F2A4400082091 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				43FDC43D1B745F60009DB6E9 /* AppDelegate.h */,
+				43FDC43E1B745F60009DB6E9 /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		43A39D591B6F2A6B00082091 /* Shared Data */ = {
+			isa = PBXGroup;
+			children = (
+				43FDC4401B745FCF009DB6E9 /* SharedData.h */,
+				43FDC4411B745FCF009DB6E9 /* SharedData.m */,
+			);
+			name = "Shared Data";
+			sourceTree = "<group>";
+		};
+		43A39D5A1B6F2A7500082091 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				43FDC4431B745FE4009DB6E9 /* Log.h */,
+				43FDC4441B745FE4009DB6E9 /* Log.m */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		43A39D5B1B6F2A8900082091 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43A39D5C1B6F2AA500082091 /* Speed Monitor */,
+				43A39D5E1B6F2AB900082091 /* Log Table */,
+				43A39D5D1B6F2AAE00082091 /* Log View */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		43A39D5C1B6F2AA500082091 /* Speed Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				43FDC4461B745FF8009DB6E9 /* SpeedMonitorViewController.h */,
+				43FDC4471B745FF8009DB6E9 /* SpeedMonitorViewController.m */,
+			);
+			name = "Speed Monitor";
+			sourceTree = "<group>";
+		};
+		43A39D5D1B6F2AAE00082091 /* Log View */ = {
+			isa = PBXGroup;
+			children = (
+				43FDC44C1B746018009DB6E9 /* LogViewController.h */,
+				43FDC44D1B746018009DB6E9 /* LogViewController.m */,
+			);
+			name = "Log View";
+			sourceTree = "<group>";
+		};
+		43A39D5E1B6F2AB900082091 /* Log Table */ = {
+			isa = PBXGroup;
+			children = (
+				43FDC4491B746007009DB6E9 /* LogTableViewController.h */,
+				43FDC44A1B746007009DB6E9 /* LogTableViewController.m */,
+			);
+			name = "Log Table";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +375,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43A39D341B6F254F00082091 /* AppDelegate.m in Sources */,
+				43FDC44E1B746018009DB6E9 /* LogViewController.m in Sources */,
 				43A39D311B6F254F00082091 /* main.m in Sources */,
+				43FDC4481B745FF8009DB6E9 /* SpeedMonitorViewController.m in Sources */,
+				43FDC44B1B746007009DB6E9 /* LogTableViewController.m in Sources */,
+				43FDC4421B745FCF009DB6E9 /* SharedData.m in Sources */,
+				43FDC4451B745FE4009DB6E9 /* Log.m in Sources */,
+				43FDC43F1B745F60009DB6E9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
