@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "SharedData.h"
 
+#define FRAME_WIDTH self.view.frame.size.width
+#define FRAME_HEIGHT self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height
+
+#define NAVBAR_HEIGHT self.navigationController.navigationBar.frame.size.height
+
+
 @interface LogTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UINavigationBar *navbar;
-
-//@property (strong, nonatomic) UITableView *log_table;
 
 @property NSArray *logData;
 

@@ -38,7 +38,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     }
 
 - (void) loadViewGraphics {
-	[self.tableView setFrame: CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
+	[self.tableView setFrame: CGRectMake(0, NAVBAR_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT - NAVBAR_HEIGHT)];
 	[self.tableView setDataSource: self];
 	[self.tableView setDelegate: self];
 	[self.tableView setBackgroundColor: [UIColor colorWithWhite: 235/255.0 alpha:1]];
@@ -54,7 +54,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     [super didReceiveMemoryWarning];
 }
 
--(void)handle_data {
+- (void)handle_data {
 	
     NSFileManager* manager = [NSFileManager defaultManager];
     self.logData = [manager contentsOfDirectoryAtPath: self.sharedData.log_path error:NULL];
@@ -75,34 +75,6 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section {
     return [self.logData count];
 }
-/*
-// Function to format the file name of the Log File
-- (NSString *) parseFileName: (NSString*) name {
-    // Copy of original input
-    NSString *format = [NSString stringWithFormat:@"%@", name];
-    
-    // Format the string to show a proper log name
-    format = [format stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-    format = [format substringWithRange:NSMakeRange(0, 19)];
-    NSString *date = [format substringWithRange:NSMakeRange(0, 10)];
-    NSString *time = [format substringWithRange:NSMakeRange(11, 8)];
-    time = [time stringByReplacingOccurrencesOfString:@"/" withString:@"."];
-    format = [date stringByAppendingFormat:@" %@", time];
-    
-    return format;
-}
-
-// Function to undo the format of the Log File Name
-- (NSString *) unparseFileName: (NSString *) name {
-    NSString * format = [NSString stringWithFormat:@"%@", name];
-    
-    format = [format stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
-    format = [format stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-    format = [format stringByReplacingOccurrencesOfString:@"." withString:@"_"];
-    format = [format stringByAppendingFormat:@".log"];
-    
-    return format;
-}*/
 
 - (void) tableView: (UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
     self.selected_file = [self.logData objectAtIndex: indexPath.row];
@@ -113,7 +85,6 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString: SEGUE_LOGVIEW]) {
         LogViewController *log = [segue destinationViewController];
-		//log.file_name = self.selected_file;
 		[log setUpLogView:self.selected_file];
     }
 }

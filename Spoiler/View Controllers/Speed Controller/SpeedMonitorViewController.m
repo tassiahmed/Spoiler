@@ -20,9 +20,9 @@
     if (!self.sharedData) {
         self.sharedData = [[SharedData alloc] init];
     }
-    
-    [self setupAnimation];
-    [self setUpSpeedMonitor];
+	
+	[self setupAnimation];
+	[self setUpSpeedMonitor];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -33,7 +33,7 @@
 #pragma mark - Initialization
 
 // Function to set up animations
--(void) setupAnimation {
+- (void) setupAnimation {
     
     // Setup the pulsing animation for the active label
     self.animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -45,12 +45,11 @@
     [self.animation setDuration:1.0];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
+- (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
--(void) setUpSpeedMonitor {
+- (void) setUpSpeedMonitor {
     
     [self.view setBackgroundColor: [UIColor blackColor]];
     
@@ -66,15 +65,15 @@
     
 	[self setUpUnitLabel];
     
-	self.log = [[Log alloc] init];
+//	self.log = [[Log alloc] init];
 	
 	[self setUpCLLManager];
 }
 
--(void) setUpNameLabel {
+- (void) setUpNameLabel {
 	UILabel *name = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH + 125, SPEED_HEIGHT)];
 	[name setText: @"Speed Monitor"];
-	[name setCenter: CGPointMake(self.view.center.x, (self.view.center.y)/3)];
+	[name setCenter: CGPointMake(CENTER_X, CENTER_Y/3)];
 	[name setFont: [name.font fontWithSize: 30]];
 	[name setTextColor: [UIColor whiteColor]];
 	[name.layer setCornerRadius: 10];
@@ -84,10 +83,13 @@
 	[self.view addSubview: name];
 }
 
--(void) setUpStartButton {
+- (void) setUpStartButton {
 	self.startButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
 	[self.startButton setTitle: @"Start" forState: UIControlStateNormal];
-	[self.startButton setFrame: CGRectMake(0.0, self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height, BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
+	[self.startButton setFrame: CGRectMake(0.0,
+										   FRAME_HEIGHT - BUTTON_HEIGHT,
+										   BUTTON_WIDTH,
+										   BUTTON_HEIGHT)];
 	[self.startButton setEnabled: YES];
 	[self.startButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
 	[self.startButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
@@ -100,12 +102,13 @@
 	[self.view addSubview: self.startButton];
 }
 
--(void) setUpStopButton {
+- (void) setUpStopButton {
 	self.stopButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
 	[self.stopButton setTitle: @"Stop" forState: UIControlStateNormal];
-	[self.stopButton setFrame: CGRectMake(self.view.frame.size.width - BUTTON_WIDTH + 20,
-										  self.view.frame.size.height - BUTTON_HEIGHT - self.tabBarController.tabBar.frame.size.height,
-										  BUTTON_WIDTH - 20, BUTTON_HEIGHT - 10)];
+	[self.stopButton setFrame: CGRectMake(FRAME_WIDTH - BUTTON_WIDTH,
+										  FRAME_HEIGHT - BUTTON_HEIGHT,
+										  BUTTON_WIDTH,
+										  BUTTON_HEIGHT)];
 	[self.stopButton setEnabled: NO];
 	[self.stopButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal];
 	[self.stopButton setTitleColor: [UIColor grayColor] forState: UIControlStateDisabled];
@@ -118,35 +121,36 @@
 	[self.view addSubview: self.stopButton];
 }
 
--(void) setUpStatusLabel {
+- (void) setUpStatusLabel {
 	self.statusLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT)];
 	[self.statusLabel setText: @"Inactive..."];
-	[self.statusLabel setCenter: CGPointMake(self.view.center.x,
-											 (self.view.frame.size.height - (BUTTON_HEIGHT/2) - self.tabBarController.tabBar.frame.size.height))];
+	[self.statusLabel setCenter: CGPointMake(CENTER_X + CENTER_X/10,
+											 FRAME_HEIGHT - (BUTTON_HEIGHT/2))];
 	[self.statusLabel setFont: [self.startButton.titleLabel.font fontWithSize: 20]];
 	[self.statusLabel setTextColor: [UIColor whiteColor]];
 	[self.view addSubview: self.statusLabel];
 }
 
--(void) setUpSpeedLabel {
+- (void) setUpSpeedLabel {
 	self.speedLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, SPEED_HEIGHT)];
 	[self.speedLabel setText: @"0"];
-	[self.speedLabel setCenter: CGPointMake(self.view.center.x - 50, self.view.center.y - 10)];
+	[self.speedLabel setCenter: CGPointMake(CENTER_X - (BUTTON_WIDTH/5),
+											CENTER_Y - (SPEED_HEIGHT - BUTTON_HEIGHT)/2)];
 	[self.speedLabel setFont: [self.speedLabel.font fontWithSize: 70]];
 	[self.speedLabel setTextColor: [UIColor redColor]];
 	[self.view addSubview: self.speedLabel];
 }
 
--(void) setUpUnitLabel {
+- (void) setUpUnitLabel {
 	self.unitLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_WIDTH)];
 	[self.unitLabel setText: [self.sharedData get_unit_type]];
-	[self.unitLabel setCenter: CGPointMake(self.view.center.x + 50, self.view.center.y)];
+	[self.unitLabel setCenter: CGPointMake(CENTER_X + (BUTTON_WIDTH/2), CENTER_Y)];
 	[self.unitLabel setFont: [self.speedLabel.font fontWithSize: 40]];
 	[self.unitLabel setTextColor: [UIColor whiteColor]];
 	[self.view addSubview: self.unitLabel];
 }
 
--(void) setUpCLLManager {
+- (void) setUpCLLManager {
 	self.cllManager = [[CLLocationManager alloc] init];
 	
 	if ([self.cllManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
@@ -161,7 +165,7 @@
 
 #pragma mark - User Actions
 
--(void) runButtonPressed {
+- (void) runButtonPressed {
     [self.startButton setEnabled: NO];
     [self.stopButton setEnabled: YES];
     
@@ -177,7 +181,7 @@
     
 }
 
--(void) stopButtonPressed {
+- (void) stopButtonPressed {
     [self.startButton setEnabled: YES];
     [self.stopButton setEnabled: NO];
     
@@ -193,13 +197,12 @@
     [self stopLocation];
     [self stopFile];
     
-    
 }
 
 #pragma mark - File Writing
 
 // Function to write a new measurement to the open file
--(void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data {
+- (void) writeToFile:(NSFileHandle*)fileSys data:(NSString*)data {
     // NSLog(@"Writing to file (%@) : %@", self.file, data);
     [self.fileSys seekToEndOfFile];
     [self.fileSys writeData:[data dataUsingEncoding:NSASCIIStringEncoding]];
@@ -219,7 +222,7 @@
 }
 
 // Function to prepare file for writing measurements into
--(void) runFileSetup:(double)rate {
+- (void) runFileSetup:(double)rate {
     
     // Retrieve the current date
     NSDate* date = [NSDate date];

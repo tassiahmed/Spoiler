@@ -132,8 +132,8 @@
 				43A39D571B6F2A3D00082091 /* Objects */,
 				43A39D5B1B6F2A8900082091 /* View Controllers */,
 				43A39D3B1B6F254F00082091 /* Main.storyboard */,
-				43A39D3E1B6F254F00082091 /* Images.xcassets */,
 				43A39D401B6F254F00082091 /* LaunchScreen.xib */,
+				43A39D3E1B6F254F00082091 /* Images.xcassets */,
 				43A39D2E1B6F254F00082091 /* Supporting Files */,
 			);
 			path = Spoiler;

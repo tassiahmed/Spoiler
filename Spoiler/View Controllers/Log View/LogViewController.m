@@ -14,7 +14,7 @@
 
 #pragma mark - View & Misc.
 
--(void) viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
 	
     self.file_name = [[NSString alloc] init];
@@ -25,12 +25,9 @@
 	
 }
 
--(void) setUpFileLabel {
+- (void) setUpFileLabel {
 	self.file_label = [[UILabel alloc] initWithFrame:
-					   CGRectMake(0, self.navigationController.navigationBar.frame.size.height,
-								  self.view.frame.size.width,
-								  self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
-	//[self.file_label setCenter:CGPointMake(self.v0iew.center.x, self.view.center.y)];
+					   CGRectMake(0, NAVBAR_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT - NAVBAR_HEIGHT)];
 	[self.file_label setText: self.file_contents];
 	[self.file_label setNumberOfLines:0];
 	[self.file_label setLineBreakMode:NSLineBreakByWordWrapping];
@@ -40,11 +37,11 @@
 
 }
 
--(void) didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
--(void) setUpLogView:(NSString*) file {
+- (void) setUpLogView:(NSString*) file {
 	self.file_name = file;
 	
 	if (!self.sharedData) {
@@ -60,7 +57,7 @@
 	[self readData];
 }
 
--(void) readData {
+- (void) readData {
 	NSMutableArray *temp_data = [[NSMutableArray alloc] init];
 	temp_data = [[self.file_contents componentsSeparatedByString:@"|"] mutableCopy];
 	assert([temp_data.firstObject isEqualToString:self.file_name]);
@@ -74,13 +71,11 @@
 	}
 	self.file_contents = @"";
 	for (int i = 0; i < temp_data.count; i++) {
-//		NSLog([temp_data objectAtIndex:i]);
+//		NSLog(@"%s", [temp_data objectAtIndex:i]);
 		self.file_contents = [self.file_contents
 							  stringByAppendingString:[temp_data objectAtIndex:i]];
 		self.file_contents = [self.file_contents stringByAppendingString:@" \n"];
-		//NSLog(@"Hello");
-	}
-	
+	}	
 }
 
 @end

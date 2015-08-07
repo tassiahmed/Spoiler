@@ -10,9 +10,16 @@
 #import "SharedData.h"
 #import "Log.h"
 
+#define CENTER_X self.view.center.x
+#define CENTER_Y self.view.center.y
+
+#define FRAME_WIDTH self.view.frame.size.width
+#define FRAME_HEIGHT self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height
+
 #define BUTTON_WIDTH self.view.frame.size.width/3
-#define BUTTON_HEIGHT self.view.frame.size.height/10
-#define SPEED_HEIGHT self.view.frame.size.height/8
+#define BUTTON_HEIGHT (self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height)/10
+
+#define SPEED_HEIGHT (self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height)/8
 
 @interface SpeedMonitorViewController : UIViewController <CLLocationManagerDelegate>
 
@@ -20,7 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 
-@property Log *log;
+//@property Log *log;
 
 @property UILabel *speedLabel;
 
