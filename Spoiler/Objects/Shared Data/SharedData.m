@@ -24,23 +24,13 @@
     // Create a rate time
     self.rate = 1;  //should definitely get from a settings file
 	
-	// Get the current date
-	self.current_date = [self get_current_date];
-
 	// Get the current path for log storage
 	self.log_path = [self get_log_dir_path];
     
     return self;
 }
 
--(NSString*) get_current_date {
-	// Initialize object to format date correctly
-	NSDateFormatter* df = [[NSDateFormatter alloc] init];
-	[df setDateFormat:@"MM_dd_yyyy"];
-	
-	return [NSString stringWithString: [df stringFromDate: [NSDate date]]];
-}
-
+//
 -(NSString*) get_log_dir_path {
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];

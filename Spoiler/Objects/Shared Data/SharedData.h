@@ -12,12 +12,9 @@
 
 @property double speed_conv;
 @property int rate;
-@property NSString* current_date;
 @property NSString* log_path;
 
 -(SharedData*) init;
-
--(NSString*) get_current_date;
 
 -(NSString*) get_log_dir_path;
 

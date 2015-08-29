@@ -38,7 +38,7 @@ static NSString* const SEGUE_LOGVIEW = @"LogSegue";
     }
 
 - (void) loadViewGraphics {
-	[self.tableView setFrame: CGRectMake(0, NAVBAR_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT - NAVBAR_HEIGHT)];
+	[self.tableView setFrame: CGRectMake(0, NAVBAR_HEIGHT, TABLE_FRAME_WIDTH, TABLE_FRAME_HEIGHT - NAVBAR_HEIGHT)];
 	[self.tableView setDataSource: self];
 	[self.tableView setDelegate: self];
 	[self.tableView setBackgroundColor: [UIColor colorWithWhite: 235/255.0 alpha:1]];

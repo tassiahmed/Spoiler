@@ -27,7 +27,7 @@
 
 - (void) setUpFileLabel {
 	self.file_label = [[UILabel alloc] initWithFrame:
-					   CGRectMake(0, NAVBAR_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT - NAVBAR_HEIGHT)];
+					   CGRectMake(0, NAVBAR_HEIGHT, LOG_FRAME_WIDTH, LOG_FRAME_HEIGHT - NAVBAR_HEIGHT)];
 	[self.file_label setText: self.file_contents];
 	[self.file_label setNumberOfLines:0];
 	[self.file_label setLineBreakMode:NSLineBreakByWordWrapping];

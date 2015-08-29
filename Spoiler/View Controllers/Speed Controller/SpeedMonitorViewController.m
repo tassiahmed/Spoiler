@@ -50,7 +50,7 @@
 }
 
 - (void) setUpSpeedMonitor {
-    
+	
     [self.view setBackgroundColor: [UIColor blackColor]];
     
 	[self setUpNameLabel];
@@ -64,6 +64,8 @@
 	[self setUpSpeedLabel];
     
 	[self setUpUnitLabel];
+	
+	self.madeValidMeasurement = false;
     
 //	self.log = [[Log alloc] init];
 	
@@ -124,7 +126,7 @@
 - (void) setUpStatusLabel {
 	self.statusLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT)];
 	[self.statusLabel setText: @"Inactive..."];
-	[self.statusLabel setCenter: CGPointMake(CENTER_X + CENTER_X/10,
+	[self.statusLabel setCenter: CGPointMake(CENTER_X + CENTER_X/20,
 											 FRAME_HEIGHT - (BUTTON_HEIGHT/2))];
 	[self.statusLabel setFont: [self.startButton.titleLabel.font fontWithSize: 20]];
 	[self.statusLabel setTextColor: [UIColor whiteColor]];
@@ -134,7 +136,7 @@
 - (void) setUpSpeedLabel {
 	self.speedLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, BUTTON_WIDTH, SPEED_HEIGHT)];
 	[self.speedLabel setText: @"0"];
-	[self.speedLabel setCenter: CGPointMake(CENTER_X - (BUTTON_WIDTH/5),
+	[self.speedLabel setCenter: CGPointMake((self.startButton.center.x + self.stopButton.center.x)/2,
 											CENTER_Y - (SPEED_HEIGHT - BUTTON_HEIGHT)/2)];
 	[self.speedLabel setFont: [self.speedLabel.font fontWithSize: 70]];
 	[self.speedLabel setTextColor: [UIColor redColor]];
@@ -219,6 +221,12 @@
 // Function to close the file for writing
 - (void) stopFile {
     [self.fileSys closeFile];
+	if (!self.madeValidMeasurement) {
+		// Delete empty file
+		NSFileManager* manager = [NSFileManager defaultManager];
+		NSError *error;
+		[manager removeItemAtPath:self.file error:&error];
+	}
 }
 
 // Function to prepare file for writing measurements into
@@ -265,12 +273,20 @@
     self.location = locations.lastObject;
     
     double velocity = 0.0;
+	
     
     if (self.location != nil) {
         velocity = self.location.speed;
+		if (velocity == -1) {
+			velocity = 0.0;
+		}
         velocity *= self.sharedData.speed_conv;
     }
-    
+
+	if (velocity > 0 && !self.madeValidMeasurement) {
+		self.madeValidMeasurement = !self.madeValidMeasurement;
+	}
+	
     NSString *string_velocity = [NSString stringWithFormat:@"%.0f", velocity];
     [self.speedLabel setText: string_velocity];
     

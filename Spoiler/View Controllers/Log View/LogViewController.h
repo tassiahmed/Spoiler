@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SharedData.h"
 
-#define FRAME_WIDTH self.view.frame.size.width
-#define FRAME_HEIGHT self.view.frame.size.height
+#define LOG_FRAME_WIDTH self.view.frame.size.width
+#define LOG_FRAME_HEIGHT self.view.frame.size.height
 
 #define NAVBAR_HEIGHT self.navigationController.navigationBar.frame.size.height
 

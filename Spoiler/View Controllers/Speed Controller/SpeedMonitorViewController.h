@@ -27,8 +27,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 
-//@property Log *log;
-
 @property UILabel *speedLabel;
 
 @property UILabel *statusLabel;
@@ -48,6 +46,8 @@
 @property NSString *file;
 
 @property NSTimeInterval RATE;
+
+@property bool madeValidMeasurement;
 
 @property (strong, nonatomic) SharedData *sharedData;
 
